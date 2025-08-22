@@ -1,648 +1,511 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta property="og:title" content="BSIT 2106 Class Links" />
-<meta property="og:description" content="Quick access to our Google Meet links. ✨🚀" />
+<meta property="og:title" content="BSIT 2106 Class Schedule" />
+<meta property="og:description" content="Interactive class schedule with direct Google Meet access. ✨🚀" />
 <meta property="og:url" content="https://bitancutiepie.github.io/BSIT-2106-CLASS-LINKS/" />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://i.imgur.com/9k8tQkD.png" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BSIT 2106 LINKS</title>
+<style>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BSIT 2106</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      background: radial-gradient(circle at 20% 20%, #0f2027, #203a43, #2c5364);
-      overflow-x: hidden;
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-    }
 
-    .stars, .stars2, .stars3 {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: block;
-      background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat top center;
-      z-index: -1;
-    }
-    .stars { animation: animStars 200s linear infinite; }
-    .stars2 { animation: animStars 400s linear infinite; opacity: 0.5; }
-    .stars3 { animation: animStars 600s linear infinite; opacity: 0.3; }
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: url('https://batstateu.edu.ph/wp-content/uploads/2020/11/Alangilan-entrance-facade.jpg') no-repeat center center/cover;
+  overflow-x: hidden;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+}
 
-    @keyframes animStars {
-      from { background-position: 0 0; }
-      to { background-position: -10000px 10000px; }
-    }
 
-    h1 {
-      font-size: 2.5rem;
-      text-shadow: 0 0 20px #00f9ff;
-      margin: 30px 0;
-      text-align: center;
-    }
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 0, 0, 0.15); /* light red tint */
+  backdrop-filter: brightness(0.6) saturate(0.7); /* washout effect */
+  z-index: -1;
+}
 
-    h2.schedule-title {
-      font-size: 2rem;
-      text-shadow: 0 0 20px #00f9ff;
-      margin: 40px 0 20px 0;
-      text-align: center;
-    }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      width: 90%;
-      max-width: 1200px;
-      margin-bottom: 50px;
-    }
 
-    .card {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(8px);
-      border-radius: 20px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
 
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
-    }
+h1 {
+  font-size: 2.8rem;
+  text-shadow: 0 0 30px #ffffff;
+  margin: 30px 0 10px 0;
+  text-align: center;
+  background: linear-gradient(45deg, #ffffff, #f7efef, #ff4d4d);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+@keyframes gradientShift {
+  0%,100% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+}
 
-    .card h2 {
-      margin-bottom: 15px;
-      font-size: 1.3rem;
-    }
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-weight: normal;
+  opacity: 0.9;
+}
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin: 5px;
-      padding: 12px 20px;
-      font-size: 1rem;
-      color: white;
-      background: linear-gradient(45deg, #6a11cb, #2575fc);
-      border-radius: 25px;
-      text-decoration: none;
-      box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
 
-    .btn svg {
-      width: 20px;
-      height: 20px;
-    }
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 20px;
+  width: 95%;
+  max-width: 800px;
+  margin: 40px 0;
+}
+.stat-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid rgba(255,77,77,0.4);
+  transition: all 0.3s ease;
+}
+.stat-card:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-5px);
+}
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff4d4d;
+  text-shadow: 0 0 15px #ff4d4d;
+}
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 5px;
+}
 
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.9);
-    }
 
-    .weekly-schedule {
-      width: 95%;
-      max-width: 1400px;
-      margin-bottom: 50px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-    }
+.weekly-schedule {
+  width: 95%;
+  max-width: 1400px;
+  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+  gap: 30px;
+}
+.day-schedule {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  padding: 30px;
+  box-shadow: 0 0 40px rgba(255,77,77,0.4);
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.day-schedule::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff4d4d, #ffffff, #b30000);
+  background-size: 200% 100%;
+  animation: slideGradient 3s linear infinite;
+}
+@keyframes slideGradient {
+  0% { background-position: -200% 0 }
+  100% { background-position: 200% 0 }
+}
+.day-schedule:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 50px rgba(255,77,77,0.6);
+}
+.day-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 0 20px #ff4d4d;
+  text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(255,255,255,0.4);
+}
 
-    .day-schedule {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(8px);
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      min-height: 200px;
-    }
 
-    .day-schedule:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
-    }
 
-    .day-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #00f9ff;
-      text-shadow: 0 0 15px #00f9ff;
-      text-align: center;
-      margin-bottom: 20px;
-      padding-bottom: 15px;
-      border-bottom: 2px solid rgba(0, 255, 255, 0.3);
-    }
 
-    .day-classes {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+.class-item {
+  background: rgba(255,255,255,0.12);
+  border-radius: 18px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.3);
+  transition: all 0.4s ease;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 15px; 
+}
 
-    .class-item {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      padding: 18px;
-      border: 1px solid rgba(0, 255, 255, 0.2);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 8px;
-    }
+.class-item:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateX(8px);
+  box-shadow: 0 10px 30px rgba(255,77,77,0.3);
+}
+.class-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.class-time {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: white; 
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.8); 
+}
 
-    .class-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(45deg, #6a11cb, #2575fc);
-      transition: width 0.3s ease;
-    }
 
-    .class-item:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(0, 255, 255, 0.4);
-      transform: translateX(5px);
-    }
 
-    .class-item:hover::before {
-      width: 8px;
-    }
 
-    .class-time {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #00f9ff;
-      text-shadow: 0 0 10px #00f9ff;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-    }
 
-    .class-time::before {
-      content: '🕐';
-      margin-right: 8px;
-      font-size: 1.1rem;
-    }
 
-    .subject-code {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #ffffff;
-      text-shadow: 0 0 8px #00f9ff;
-      margin-bottom: 4px;
-    }
 
-    .subject-name {
-      font-size: 0.9rem;
-      opacity: 0.9;
-      color: #e0e0e0;
-      margin-bottom: 10px;
-      line-height: 1.3;
-    }
+.meet-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(45deg, #b30000, #ff4d4d);
+  border-radius: 20px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(179,0,0,0.3);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+.meet-btn:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 8px 25px rgba(179,0,0,0.5);
+  background: linear-gradient(45deg, #ff4d4d, #b30000);
+}
+.subject-code {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #ffffff; 
+  text-shadow: 0 0 8px rgba(255, 77, 77, 0.7); 
+  margin-bottom: 8px;
+}
 
-    .class-details {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-    }
 
-    .room {
-      background: linear-gradient(45deg, rgba(37, 117, 252, 0.3), rgba(106, 17, 203, 0.3));
-      border-radius: 8px;
-      padding: 4px 10px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      border: 1px solid rgba(37, 117, 252, 0.5);
-      color: #ffffff;
-      display: inline-flex;
-      align-items: center;
-    }
+.subject-name {
+  font-size: 0.95rem;
+  color: #222; 
+  margin-bottom: 15px;
+}
 
-    .room::before {
-      content: '📍';
-      margin-right: 4px;
-    }
+.class-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.room {
+  background: rgba(255,77,77,0.4);
+  border-radius: 12px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(255,77,77,0.6);
+  color: #ffffff;
+}
+.instructor {
+  font-style: italic;
+  opacity: 0.9;
+  font-size: 0.8rem;
+  color: #ffffff;
+}
 
-    .instructor {
-      font-style: italic;
-      opacity: 0.8;
-      font-size: 0.8rem;
-      color: #cccccc;
-      display: inline-flex;
-      align-items: center;
-    }
 
-    .instructor::before {
-      content: '👨‍🏫';
-      margin-right: 4px;
-    }
+.floating-action {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(45deg,#b30000,#ff4d4d);
+  border-radius: 50%;
+  width: 60px; height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(179,0,0,0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+.floating-action:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 35px rgba(179,0,0,0.6);
+}
 
-    @media (max-width: 1024px) {
-      .weekly-schedule {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-    }
 
-    @media (max-width: 768px) {
-      .weekly-schedule {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      
-      .day-schedule {
-        padding: 25px;
-        min-height: auto;
-      }
-      
-      .day-title {
-        font-size: 1.3rem;
-      }
-      
-      .class-time {
-        font-size: 0.9rem;
-      }
-      
-      .subject-code {
-        font-size: 1rem;
-      }
-      
-      .subject-name {
-        font-size: 0.85rem;
-      }
-
-      .class-item {
-        padding: 15px;
-      }
-    }
-  </style>
+@media (max-width:768px){
+  h1{font-size:2rem}
+  .weekly-schedule{grid-template-columns:1fr;gap:25px}
+  .day-schedule{padding:25px}
+  .day-title{font-size:1.5rem}
+  .class-header{flex-direction:column;align-items:flex-start}
+  .class-item{padding:16px}
+  .floating-action{bottom:20px;right:20px;width:50px;height:50px}
+}
+</style>
 </head>
 <body>
-  <div class="stars"></div>
-  <div class="stars2"></div>
-  <div class="stars3"></div>
+<h1>BSIT 2106 CLASS SCHEDULE</h1>
+<h2>Created by: Bitancor, Joshua Vincent</h2>
 
-  <h1>BSIT 2106 CLASS MEET LINKS</h1>
 
-  <div class="grid">
-    <div class="card">
-      <h2>IT 211 - Database Management System</h2>
-      <a class="btn" href="https://meet.google.com/nmd-kafg-mjy?authuser=0&hs=179" target="_blank">
-        <!-- Meet SVG -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-          <rect width="16" height="16" x="12" y="16" fill="#fff" transform="rotate(-90 20 24)"></rect>
-          <polygon fill="#1e88e5" points="3,17 3,31 8,32 13,31 13,17 8,16"></polygon>
-          <path fill="#4caf50" d="M37,24v14c0,1.657-1.343,3-3,3H13l-1-5l1-5h14v-7l5-1L37,24z"></path>
-          <path fill="#fbc02d" d="M37,10v14H27v-7H13l-1-5l1-5h21C35.657,7,37,8.343,37,10z"></path>
-          <path fill="#1565c0" d="M13,31v10H6c-1.657,0-3-1.343-3-3v-7H13z"></path>
-          <polygon fill="#e53935" points="13,7 13,17 3,17"></polygon>
-          <polygon fill="#2e7d32" points="38,24 37,32.45 27,24 37,15.55"></polygon>
-          <path fill="#4caf50" d="M46,10.11v27.78c0,0.84-0.98,1.31-1.63,0.78L37,32.45v-16.9l7.37-6.22C45.02,8.8,46,9.27,46,10.11z"></path>
-        </svg>
-        Google Meet
-      </a>
-    </div>
 
-    <div class="card">
-      <h2>IT 212 - Computer Networking 1</h2>
-      <a class="btn" href="https://meet.google.com/obw-kfzu-wrm?authuser=0&hs=179" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-          <rect width="16" height="16" x="12" y="16" fill="#fff" transform="rotate(-90 20 24)"></rect>
-          <polygon fill="#1e88e5" points="3,17 3,31 8,32 13,31 13,17 8,16"></polygon>
-          <path fill="#4caf50" d="M37,24v14c0,1.657-1.343,3-3,3H13l-1-5l1-5h14v-7l5-1L37,24z"></path>
-          <path fill="#fbc02d" d="M37,10v14H27v-7H13l-1-5l1-5h21C35.657,7,37,8.343,37,10z"></path>
-          <path fill="#1565c0" d="M13,31v10H6c-1.657,0-3-1.343-3-3v-7H13z"></path>
-          <polygon fill="#e53935" points="13,7 13,17 3,17"></polygon>
-          <polygon fill="#2e7d32" points="38,24 37,32.45 27,24 37,15.55"></polygon>
-          <path fill="#4caf50" d="M46,10.11v27.78c0,0.84-0.98,1.31-1.63,0.78L37,32.45v-16.9l7.37-6.22C45.02,8.8,46,9.27,46,10.11z"></path>
-        </svg>
-        Google Meet
-      </a>
-    </div>
-
-    <div class="card">
-      <h2>CpE 405 - Discrete Mathematics</h2>
-      <a class="btn" href="https://meet.google.com/map-mwcx-mqc?authuser=0&hs=179" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-          <rect width="16" height="16" x="12" y="16" fill="#fff" transform="rotate(-90 20 24)"></rect>
-          <polygon fill="#1e88e5" points="3,17 3,31 8,32 13,31 13,17 8,16"></polygon>
-          <path fill="#4caf50" d="M37,24v14c0,1.657-1.343,3-3,3H13l-1-5l1-5h14v-7l5-1L37,24z"></path>
-          <path fill="#fbc02d" d="M37,10v14H27v-7H13l-1-5l1-5h21C35.657,7,37,8.343,37,10z"></path>
-          <path fill="#1565c0" d="M13,31v10H6c-1.657,0-3-1.343-3-3v-7H13z"></path>
-          <polygon fill="#e53935" points="13,7 13,17 3,17"></polygon>
-          <polygon fill="#2e7d32" points="38,24 37,32.45 27,24 37,15.55"></polygon>
-          <path fill="#4caf50" d="M46,10.11v27.78c0,0.84-0.98,1.31-1.63,0.78L37,32.45v-16.9l7.37-6.22C45.02,8.8,46,9.27,46,10.11z"></path>
-        </svg>
-        Google Meet
-      </a>
-    </div>
-
-    <div class="card">
-      <h2>Pathfit 3</h2>
-      <a class="btn" href="https://meet.google.com/wey-kdwq-swn?authuser=0&hs=179" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-          <rect width="16" height="16" x="12" y="16" fill="#fff" transform="rotate(-90 20 24)"></rect>
-          <polygon fill="#1e88e5" points="3,17 3,31 8,32 13,31 13,17 8,16"></polygon>
-          <path fill="#4caf50" d="M37,24v14c0,1.657-1.343,3-3,3H13l-1-5l1-5h14v-7l5-1L37,24z"></path>
-          <path fill="#fbc02d" d="M37,10v14H27v-7H13l-1-5l1-5h21C35.657,7,37,8.343,37,10z"></path>
-          <path fill="#1565c0" d="M13,31v10H6c-1.657,0-3-1.343-3-3v-7H13z"></path>
-          <polygon fill="#e53935" points="13,7 13,17 3,17"></polygon>
-          <polygon fill="#2e7d32" points="38,24 37,32.45 27,24 37,15.55"></polygon>
-          <path fill="#4caf50" d="M46,10.11v27.78c0,0.84-0.98,1.31-1.63,0.78L37,32.45v-16.9l7.37-6.22C45.02,8.8,46,9.27,46,10.11z"></path>
-        </svg>
-        Google Meet
-      </a>
-    </div>
-
-    <div class="card">
-      <h2>CS 121 - Advanced Computer Programming</h2>
-      <a class="btn" href="https://meet.google.com/sdp-yyyx-joy?authuser=0&hs=179" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-          <rect width="16" height="16" x="12" y="16" fill="#fff" transform="rotate(-90 20 24)"></rect>
-          <polygon fill="#1e88e5" points="3,17 3,31 8,32 13,31 13,17 8,16"></polygon>
-          <path fill="#4caf50" d="M37,24v14c0,1.657-1.343,3-3,3H13l-1-5l1-5h14v-7l5-1L37,24z"></path>
-          <path fill="#fbc02d" d="M37,10v14H27v-7H13l-1-5l1-5h21C35.657,7,37,8.343,37,10z"></path>
-          <path fill="#1565c0" d="M13,31v10H6c-1.657,0-3-1.343-3-3v-7H13z"></path>
-          <polygon fill="#e53935" points="13,7 13,17 3,17"></polygon>
-          <polygon fill="#2e7d32" points="38,24 37,32.45 27,24 37,15.55"></polygon>
-          <path fill="#4caf50" d="M46,10.11v27.78c0,0.84-0.98,1.31-1.63,0.78L37,32.45v-16.9l7.37-6.22C45.02,8.8,46,9.27,46,10.11z"></path>
-        </svg>
-        Google Meet
-      </a>
-    </div>
-
-    <div class="card">
-      <h2>PHY 101 - Calculus Based Physics</h2>
-      <a class="btn" href="https://meet.google.com/asz-zjvf-dts" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-          <rect width="16" height="16" x="12" y="16" fill="#fff" transform="rotate(-90 20 24)"></rect>
-          <polygon fill="#1e88e5" points="3,17 3,31 8,32 13,31 13,17 8,16"></polygon>
-          <path fill="#4caf50" d="M37,24v14c0,1.657-1.343,3-3,3H13l-1-5l1-5h14v-7l5-1L37,24z"></path>
-          <path fill="#fbc02d" d="M37,10v14H27v-7H13l-1-5l1-5h21C35.657,7,37,8.343,37,10z"></path>
-          <path fill="#1565c0" d="M13,31v10H6c-1.657,0-3-1.343-3-3v-7H13z"></path>
-          <polygon fill="#e53935" points="13,7 13,17 3,17"></polygon>
-          <polygon fill="#2e7d32" points="38,24 37,32.45 27,24 37,15.55"></polygon>
-          <path fill="#4caf50" d="M46,10.11v27.78c0,0.84-0.98,1.31-1.63,0.78L37,32.45v-16.9l7.37-6.22C45.02,8.8,46,9.27,46,10.11z"></path>
-        </svg>
-        Google Meet
-      </a>
-    </div>
-
-    <div class="card">
-      <h2>Litr 102 - ASEAN Literature</h2>
-      <p style="opacity: 0.8; font-size: 0.9rem; margin: 10px 0;">Meet link not available</p>
-    </div>
-
-    <div class="card">
-  <h2>CS 211 - Object-Oriented Programming</h2>
-  <a class="btn" href="https://meet.google.com/yfw-wcyq-nmi?authuser=0&hs=179" target="_blank">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-      <rect width="16" height="16" x="12" y="16" fill="#fff" transform="rotate(-90 20 24)"></rect>
-      <polygon fill="#1e88e5" points="3,17 3,31 8,32 13,31 13,17 8,16"></polygon>
-      <path fill="#4caf50" d="M37,24v14c0,1.657-1.343,3-3,3H13l-1-5l1-5h14v-7l5-1L37,24z"></path>
-      <path fill="#fbc02d" d="M37,10v14H27v-7H13l-1-5l1-5h21C35.657,7,37,8.343,37,10z"></path>
-      <path fill="#1565c0" d="M13,31v10H6c-1.657,0-3-1.343-3-3v-7H13z"></path>
-      <polygon fill="#e53935" points="13,7 13,17 3,17"></polygon>
-      <polygon fill="#2e7d32" points="38,24 37,32.45 27,24 37,15.55"></polygon>
-      <path fill="#4caf50" d="M46,10.11v27.78c0,0.84-0.98,1.31-1.63,0.78L37,32.45v-16.9l7.37-6.22C45.02,8.8,46,9.27,46,10.11z"></path>
-    </svg>
-    Google Meet
-  </a>
+<div class="weekly-schedule">
+<!-- MONDAY -->
+<div class="day-schedule">
+<h3 class="day-title">MONDAY</h3>
+<div class="day-classes">
+<div class="class-item">
+<div class="class-header">
+<div class="class-time">08:00 AM - 10:00 AM</div>
+<a class="meet-btn" href="https://meet.google.com/nmd-kafg-mjy?authuser=0&hs=179" target="_blank">Join Meet</a>
+</div>
+<div class="subject-code">IT 211</div>
+<div class="subject-name">Database Management System</div>
+<div class="class-details">
+<span class="room">Room 101</span>
+<span class="instructor">MANGUBAT, JELEEN M.</span>
+</div>
+</div>
+<div class="class-item">
+<div class="class-header">
+<div class="class-time">10:00 AM - 11:30 AM</div>
+<a class="meet-btn" href="https://meet.google.com/dwz-cjbm-tke?authuser=0&hs=179" target="_blank">Join Meet</a>
+</div>
+<div class="subject-code">LITR 102</div>
+<div class="subject-name">ASEAN Literature</div>
+<div class="class-details">
+<span class="room">Room 104</span>
+<span class="instructor">BAXA, ELAINE NOREEN G.</span>
+</div>
+</div>
+<div class="class-item">
+<div class="class-header">
+<div class="class-time">01:00 PM - 02:30 PM</div>
+<a class="meet-btn" href="https://meet.google.com/map-mwcx-mqc?authuser=0&hs=179" target="_blank">Join Meet</a>
+</div>
+<div class="subject-code">CpE 405</div>
+<div class="subject-name">Discrete Mathematics</div>
+<div class="class-details">
+<span class="room">Room 103</span>
+<span class="instructor">DALISAY, CHRISTI NORMA C.</span>
+</div>
+</div>
+</div>
 </div>
 
-  </div>
+<!-- TUESDAY -->
+<div class="day-schedule">
+<h3 class="day-title">TUESDAY</h3>
+<div class="day-classes">
+<div class="class-item">
+<div class="class-header">
+<div class="class-time">07:00 AM - 10:00 AM</div>
+<a class="meet-btn" href="https://meet.google.com/yfw-wcyq-nmi?authuser=0&hs=179" target="_blank">Join Meet</a>
+</div>
+<div class="subject-code">CS 211</div>
+<div class="subject-name">Object-Oriented Programming</div>
+<div class="class-details">
+<span class="room">Lab 3</span>
+<span class="instructor">COMIA, JURIEL U.</span>
+</div>
+</div>
+<div class="class-item">
+<div class="class-header">
+<div class="class-time">11:00 AM - 01:00 PM</div>
+<a class="meet-btn" href="https://meet.google.com/obw-kfzu-wrm?authuser=0&hs=179" target="_blank">Join Meet</a>
+</div>
+<div class="subject-code">IT 212</div>
+<div class="subject-name">Computer Networking 1</div>
+<div class="class-details">
+<span class="room">Room 104</span>
+<span class="instructor">RODRIGUEZ, RAYMOND KIT M.</span>
+</div>
+</div>
+<div class="class-item">
+<div class="class-header">
+<div class="class-time">01:00 PM - 04:00 PM</div>
+<a class="meet-btn" href="https://meet.google.com/sdp-yyyx-joy?authuser=0&hs=179" target="_blank">Join Meet</a>
+</div>
+<div class="subject-code">CS 121</div>
+<div class="subject-name">Advanced Computer Programming</div>
+<div class="class-details">
+<span class="room">Lab 3</span>
+<span class="instructor">REYES, GLYDEL ANN E.</span>
+</div>
+</div>
+<div class="class-item">
+<div class="class-header">
+<div class="class-time">04:00 PM - 07:00 PM</div>
+<a class="meet-btn" href="https://meet.google.com/asz-zjvf-dts?authuser=0&hs=179" target="_blank">Join Meet</a>
+</div>
+<div class="subject-code">PHY 101</div>
+<div class="subject-name">Calculus-Based Physics</div>
+<div class="class-details">
+<span class="room">Room 402</span>
+<span class="instructor">TOBEO, RAYNAN A.</span>
+</div>
+</div>
+</div>
+</div>
 
-  <h2 class="schedule-title">WEEKLY CLASS SCHEDULE</h2>
+<!-- WEDNESDAY -->
+<div class="day-schedule">
+<h3 class="day-title">WEDNESDAY</h3>
+<div class="day-classes">
+<div class="class-item">
+<div class="class-header">
+<div class="class-time">07:00 AM - 08:30 AM</div>
+<a class="meet-btn" href="https://meet.google.com/map-mwcx-mqc?authuser=0&hs=179" target="_blank">Join Meet</a>
+</div>
+<div class="subject-code">CpE 405</div>
+<div class="subject-name">Discrete Mathematics</div>
+<div class="class-details">
+<span class="room">Room 104</span>
+<span class="instructor">DALISAY, CHRISTI NORMA C.</span>
+</div>
+</div>
+<div class="class-item">
+<div class="class-header">
+<div class="class-time">08:30 AM - 10:00 AM</div>
+<a class="meet-btn" href="https://meet.google.com/dwz-cjbm-tke?authuser=0&hs=179" target="_blank">Join Meet</a>
+</div>
+<div class="subject-code">LITR 102</div>
+<div class="subject-name">ASEAN Literature</div>
+<div class="class-details">
+<span class="room">Room 104</span>
+<span class="instructor">BAXA, ELAINE NOREEN G.</span>
+</div>
+</div>
+<div class="class-item">
+<div class="class-header">
+<div class="class-time">10:00 AM - 12:00 PM</div>
+<a class="meet-btn" href="https://meet.google.com/asz-zjvf-dts" target="_blank">Join Meet</a>
+</div>
+<div class="subject-code">PHY 101</div>
+<div class="subject-name">Calculus-Based Physics</div>
+<div class="class-details">
+<span class="room">Room 104</span>
+<span class="instructor">TOBEO, RAYNAN A.</span>
+</div>
+</div>
+<div class="class-item">
+<div class="class-header">
+<div class="class-time">01:00 PM - 04:00 PM</div>
+<a class="meet-btn" href="https://meet.google.com/obw-kfzu-wrm?authuser=0&hs=179" target="_blank">Join Meet</a>
+</div>
+<div class="subject-code">IT 212</div>
+<div class="subject-name">Computer Networking 1</div>
+<div class="class-details">
+<span class="room">Lab 3</span>
+<span class="instructor">RODRIGUEZ, RAYMOND KIT M.</span>
+</div>
+</div>
+</div>
+</div>
 
-  <div class="weekly-schedule">
-    <!-- MONDAY -->
-    <div class="day-schedule">
-      <h3 class="day-title">MONDAY</h3>
-      <div class="day-classes">
-        <div class="class-item">
-          <div class="class-time">08:00 AM - 10:00 AM</div>
-          <div class="class-info">
-            <div class="subject-code">IT 211</div>
-            <div class="subject-name">Database Management System</div>
-            <div class="class-details">
-              <span class="room">Room 101</span>
-              <span class="instructor">MANGUBAT, JELEEN M.</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="class-item">
-          <div class="class-time">10:00 AM - 11:30 AM</div>
-          <div class="class-info">
-            <div class="subject-code">LITR 102</div>
-            <div class="subject-name">ASEAN Literature</div>
-            <div class="class-details">
-              <span class="room">Room 104</span>
-              <span class="instructor">BAXA, ELAINE NOREEN G.</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="class-item">
-          <div class="class-time">01:00 PM - 02:30 PM</div>
-          <div class="class-info">
-            <div class="subject-code">CpE 405</div>
-            <div class="subject-name">Discrete Mathematics</div>
-            <div class="class-details">
-              <span class="room">Room 103</span>
-              <span class="instructor">DALISAY, CHRISTI NORMA C.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- THURSDAY -->
+<div class="day-schedule">
+<h3 class="day-title">THURSDAY</h3>
+<div class="day-classes">
+<div class="class-item">
+<div class="class-header">
+<div class="class-time">08:00 AM - 10:00 AM</div>
+<a class="meet-btn" href="https://meet.google.com/sdp-yyyx-joy?authuser=0&hs=179" target="_blank">Join Meet</a>
+</div>
+<div class="subject-code">CS 121</div>
+<div class="subject-name">Advanced Computer Programming</div>
+<div class="class-details">
+<span class="room">Room 102</span>
+<span class="instructor">REYES, GLYDEL ANN E.</span>
+</div>
+</div>
+<div class="class-item">
+<div class="class-header">
+<div class="class-time">10:00 AM - 12:00 PM</div>
+<a class="meet-btn" href="https://meet.google.com/yfw-wcyq-nmi?authuser=0&hs=179" target="_blank">Join Meet</a>
+</div>
+<div class="subject-code">CS 211</div>
+<div class="subject-name">Object-Oriented Programming</div>
+<div class="class-details">
+<span class="room">Room 104</span>
+<span class="instructor">COMIA, JURIEL U.</span>
+</div>
+</div>
+<div class="class-item">
+<div class="class-header">
+<div class="class-time">01:00 PM - 04:00 PM</div>
+<a class="meet-btn" href="https://meet.google.com/nmd-kafg-mjy?authuser=0&hs=179" target="_blank">Join Meet</a>
+</div>
+<div class="subject-code">IT 211</div>
+<div class="subject-name">Database Management System</div>
+<div class="class-details">
+<span class="room">Lab 5</span>
+<span class="instructor">MANGUBAT, JELEEN M.</span>
+</div>
+</div>
+</div>
+</div>
 
-    <!-- TUESDAY -->
-    <div class="day-schedule">
-      <h3 class="day-title">TUESDAY</h3>
-      <div class="day-classes">
-        <div class="class-item">
-          <div class="class-time">07:00 AM - 10:00 AM</div>
-          <div class="class-info">
-            <div class="subject-code">CS 211</div>
-            <div class="subject-name">Object-Oriented Programming</div>
-            <div class="class-details">
-              <span class="room">Lab 3</span>
-              <span class="instructor">COMIA, JURIEL U.</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="class-item">
-          <div class="class-time">11:00 AM - 01:00 PM</div>
-          <div class="class-info">
-            <div class="subject-code">IT 212</div>
-            <div class="subject-name">Computer Networking 1</div>
-            <div class="class-details">
-              <span class="room">Room 104</span>
-              <span class="instructor">RODRIGUEZ, RAYMOND KIT M.</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="class-item">
-          <div class="class-time">01:00 PM - 04:00 PM</div>
-          <div class="class-info">
-            <div class="subject-code">CS 121</div>
-            <div class="subject-name">Advanced Computer Programming</div>
-            <div class="class-details">
-              <span class="room">Lab 3</span>
-              <span class="instructor">REYES, GLYDEL ANN E.</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="class-item">
-          <div class="class-time">04:00 PM - 07:00 PM</div>
-          <div class="class-info">
-            <div class="subject-code">PHY 101</div>
-            <div class="subject-name">Calculus-Based Physics</div>
-            <div class="class-details">
-              <span class="room">Room 402</span>
-              <span class="instructor">DE VILLA, ALONDRA C.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- FRIDAY -->
+<div class="day-schedule">
+<h3 class="day-title">FRIDAY</h3>
+<div class="day-classes">
+<div class="class-item">
+<div class="class-header">
+<div class="class-time">04:00 PM - 06:00 PM</div>
+<a class="meet-btn" href="https://meet.google.com/wey-kdwq-swn?authuser=0&hs=179" target="_blank">Join Meet</a>
+</div>
+<div class="subject-code">PATHFit 3</div>
+<div class="subject-name">Traditional and Recreational Games</div>
+<div class="class-details">
+<span class="room">Gym</span>
+<span class="instructor">DE CASTRO, JOEY R.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-    <!-- WEDNESDAY -->
-    <div class="day-schedule">
-      <h3 class="day-title">WEDNESDAY</h3>
-      <div class="day-classes">
-        <div class="class-item">
-          <div class="class-time">07:00 AM - 08:30 AM</div>
-          <div class="class-info">
-            <div class="subject-code">CpE 405</div>
-            <div class="subject-name">Discrete Mathematics</div>
-            <div class="class-details">
-              <span class="room">Room 104</span>
-              <span class="instructor">DALISAY, CHRISTI NORMA C.</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="class-item">
-          <div class="class-time">08:30 AM - 10:00 AM</div>
-          <div class="class-info">
-            <div class="subject-code">LITR 102</div>
-            <div class="subject-name">ASEAN Literature</div>
-            <div class="class-details">
-              <span class="room">Room 104</span>
-              <span class="instructor">BAXA, ELAINE NOREEN G.</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="class-item">
-          <div class="class-time">10:00 AM - 12:00 PM</div>
-          <div class="class-info">
-            <div class="subject-code">PHY 101</div>
-            <div class="subject-name">Calculus-Based Physics</div>
-            <div class="class-details">
-              <span class="room">Room 104</span>
-              <span class="instructor">DE VILLA, ALONDRA C.</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="class-item">
-          <div class="class-time">01:00 PM - 04:00 PM</div>
-          <div class="class-info">
-            <div class="subject-code">IT 212</div>
-            <div class="subject-name">Computer Networking 1</div>
-            <div class="class-details">
-              <span class="room">Lab 3</span>
-              <span class="instructor">RODRIGUEZ, RAYMOND KIT M.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- THURSDAY -->
-    <div class="day-schedule">
-      <h3 class="day-title">THURSDAY</h3>
-      <div class="day-classes">
-        <div class="class-item">
-          <div class="class-time">08:00 AM - 10:00 AM</div>
-          <div class="class-info">
-            <div class="subject-code">CS 121</div>
-            <div class="subject-name">Advanced Computer Programming</div>
-            <div class="class-details">
-              <span class="room">Room 102</span>
-              <span class="instructor">REYES, GLYDEL ANN E.</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="class-item">
-          <div class="class-time">10:00 AM - 12:00 PM</div>
-          <div class="class-info">
-            <div class="subject-code">CS 211</div>
-            <div class="subject-name">Object-Oriented Programming</div>
-            <div class="class-details">
-              <span class="room">Room 104</span>
-              <span class="instructor">COMIA, JURIEL U.</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="class-item">
-          <div class="class-time">01:00 PM - 04:00 PM</div>
-          <div class="class-info">
-            <div class="subject-code">IT 211</div>
-            <div class="subject-name">Database Management System</div>
-            <div class="class-details">
-              <span class="room">Lab 5</span>
-              <span class="instructor">MANGUBAT, JELEEN M.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FRIDAY -->
-    <div class="day-schedule">
-      <h3 class="day-title">FRIDAY</h3>
-      <div class="day-classes">
-        <div class="class-item">
-          <div class="class-time">04:00 PM - 06:00 PM</div>
-          <div class="class-info">
-            <div class="subject-code">PATHFit 3</div>
-            <div class="subject-name">Traditional and Recreational Games</div>
-            <div class="class-details">
-              <span class="room">Gym</span>
-              <span class="instructor">DE CASTRO, JOEY R.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+<div class="floating-action" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="m18 15-6-6-6 6"/>
+</svg>
+</div>
 </body>
 </html>
