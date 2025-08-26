@@ -61,6 +61,34 @@ h2 {
   opacity: 0.9;
 }
 
+.visitor-counter {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 15px 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(255,77,77,0.4);
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+}
+
+.counter-number {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #ff4d4d;
+  text-shadow: 0 0 10px rgba(255, 77, 77, 0.7);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
 .weekly-schedule {
   width: 95%;
   max-width: 1400px;
@@ -245,12 +273,22 @@ h2 {
   .class-header{flex-direction:column;align-items:flex-start}
   .class-item{padding:16px}
   .floating-action{bottom:20px;right:20px;width:50px;height:50px}
+  .visitor-counter {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
 }
 </style>
 </head>
 <body>
 <h1>BSIT 2106 CLASS SCHEDULE</h1>
 <h2>Created by: Bitancor, Joshua Vincent</h2>
+
+<!-- Visitor Counter -->
+<div class="visitor-counter">
+  <span>👥 Visitors online: </span>
+  <span class="counter-number" id="visitorCount">0</span>
+</div>
 
 <div class="weekly-schedule">
 <!-- MONDAY -->
@@ -492,7 +530,7 @@ h2 {
 <div class="class-item">
 <div class="class-header">
 <div class="subject-code">IT 212</div>
-<a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4OTQwMTQ5ODI1" target="_blank">Classroom</a>
+<a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4OTQwMTQ5ODI5" target="_blank">Classroom</a>
 </div>
 <div class="subject-name">Computer Networking 1</div>
 <div class="class-details">
@@ -566,5 +604,60 @@ h2 {
 <div class="floating-action" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
   <img src="patrick.jpg" alt="Go Up" style="width: 90%; height: 90%; border-radius: 50%;">
 </div>
+
+<script>
+// Visitor counter functionality
+document.addEventListener('DOMContentLoaded', function() {
+  // Generate a unique ID for this visitor
+  const visitorId = 'visitor_' + Math.random().toString(36).substr(2, 9);
+  
+  // Store visitor ID in session storage
+  sessionStorage.setItem('visitorId', visitorId);
+  
+  // Get or initialize visitor count from local storage
+  let visitors = JSON.parse(localStorage.getItem('activeVisitors')) || {};
+  
+  // Add current visitor with timestamp
+  visitors[visitorId] = Date.now();
+  
+  // Remove visitors who haven't been active in the last 5 minutes
+  const fiveMinutesAgo = Date.now() - 5 * 60 * 1000;
+  for (let id in visitors) {
+    if (visitors[id] < fiveMinutesAgo) {
+      delete visitors[id];
+    }
+  }
+  
+  // Save updated visitor list
+  localStorage.setItem('activeVisitors', JSON.stringify(visitors));
+  
+  // Update the counter display
+  const visitorCount = Object.keys(visitors).length;
+  document.getElementById('visitorCount').textContent = visitorCount;
+  
+  // Update activity every minute
+  setInterval(() => {
+    visitors = JSON.parse(localStorage.getItem('activeVisitors')) || {};
+    visitors[visitorId] = Date.now();
+    
+    // Clean up old visitors
+    for (let id in visitors) {
+      if (visitors[id] < fiveMinutesAgo) {
+        delete visitors[id];
+      }
+    }
+    
+    localStorage.setItem('activeVisitors', JSON.stringify(visitors));
+    document.getElementById('visitorCount').textContent = Object.keys(visitors).length;
+  }, 60000);
+  
+  // Clean up when page is closed or refreshed
+  window.addEventListener('beforeunload', () => {
+    visitors = JSON.parse(localStorage.getItem('activeVisitors')) || {};
+    delete visitors[visitorId];
+    localStorage.setItem('activeVisitors', JSON.stringify(visitors));
+  });
+});
+</script>
 </body>
 </html>
