@@ -607,7 +607,6 @@ h2 {
 </style>
 </head>
 <body>
-<!-- The rest of your HTML remains the same -->
 <h1>BSIT 2106 CLASS SCHEDULE</h1>
 <h2>Created by: Bitancor, Joshua Vincent</h2>
 
@@ -865,7 +864,7 @@ h2 {
           <div class="class-item">
             <div class="class-header">
               <div class="subject-code">IT 212</div>
-              <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4OTQwMTQ5ODI1" target="_blank">Classroom</a>
+              <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4OTQwMTQ5ODI5" target="_blank">Classroom</a>
             </div>
             <div class="subject-name">Computer Networking 1</div>
             <div class="class-details">
@@ -879,7 +878,7 @@ h2 {
             </div>
             <div class="subject-name">Calculus-Based Physics</div>
             <div class="class-details">
-              <span class="instructor">TOBEO, RAYNAN A.</span>
+              <span class="instructor">TOBEO, RRAYNAN A.</span>
             </div>
           </div>
           <div class="class-item">
@@ -977,8 +976,8 @@ h2 {
         </div>
         
         <div class="form-group">
-          <label for="assignmentDueDate">Due Date</label>
-          <input type="datetime-local" id="assignmentDueDate" required>
+          <label for="assignmentDueDate">Due Date (Optional)</label>
+          <input type="datetime-local" id="assignmentDueDate">
         </div>
         
         <div class="form-group">
@@ -1060,15 +1059,25 @@ function renderAssignments() {
     return;
   }
   
-  // Sort assignments by due date
-  assignments.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
+  // Sort assignments - those with due dates first, then those without
+  assignments.sort((a, b) => {
+    if (a.dueDate && b.dueDate) {
+      return new Date(a.dueDate) - new Date(b.dueDate);
+    } else if (a.dueDate && !b.dueDate) {
+      return -1;
+    } else if (!a.dueDate && b.dueDate) {
+      return 1;
+    }
+    return 0;
+  });
   
   let assignmentsHTML = '';
   
   assignments.forEach(assignment => {
-    const dueDate = new Date(assignment.dueDate);
-    const formattedDate = dueDate.toLocaleString();
-    const isOverdue = new Date() > dueDate;
+    const hasDueDate = assignment.dueDate !== null;
+    const dueDate = hasDueDate ? new Date(assignment.dueDate) : null;
+    const formattedDate = hasDueDate ? dueDate.toLocaleString() : 'No deadline';
+    const isOverdue = hasDueDate && new Date() > dueDate;
     
     assignmentsHTML += `
       <div class="assignment-item ${isOverdue ? 'overdue' : ''}">
@@ -1076,7 +1085,7 @@ function renderAssignments() {
           <div class="assignment-title">${assignment.title}</div>
           <span class="assignment-subject">${assignment.subject}</span>
         </div>
-        <div class="assignment-due">Due: ${formattedDate}</div>
+        <div class="assignment-due">${hasDueDate ? 'Due: ' + formattedDate : 'No specific deadline'}</div>
         <div class="assignment-description">${assignment.description || 'No description provided.'}</div>
       </div>
     `;
@@ -1097,13 +1106,13 @@ function addAssignment(event) {
   
   const title = document.getElementById('assignmentTitle').value;
   const subject = document.getElementById('assignmentSubject').value;
-  const dueDate = document.getElementById('assignmentDueDate').value;
+  const dueDate = document.getElementById('assignmentDueDate').value || null;
   const description = document.getElementById('assignmentDescription').value;
   
   const newAssignment = {
     title,
     subject,
-    dueDate,
+    dueDate, // This can be null
     description,
     id: Date.now() // Unique identifier
   };
@@ -1156,5 +1165,3 @@ loadAssignments();
 </script>
 </body>
 </html>
-
-
