@@ -268,6 +268,8 @@ h2 {
   box-shadow: 0 0 40px rgba(255,77,77,0.4);
   border: 1px solid rgba(255,255,255,0.2);
   margin-bottom: 30px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .assignment-list {
@@ -281,6 +283,8 @@ h2 {
   padding: 20px;
   border: 1px solid rgba(255,255,255,0.3);
   transition: all 0.4s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .assignment-item:hover {
@@ -304,6 +308,8 @@ h2 {
   color: #ffffff; 
   text-shadow: 0 0 8px rgba(255, 77, 77, 0.7); 
   margin-bottom: 8px;
+  flex: 1;
+  min-width: 200px;
 }
 
 .assignment-subject {
@@ -360,6 +366,8 @@ h2 {
   border-radius: 18px;
   padding: 20px;
   margin-top: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .admin-toggle {
@@ -465,11 +473,65 @@ h2 {
   box-shadow: 0 12px 35px rgba(179,0,0,0.6);
 }
 
-@media (max-width:768px){
-
-  .assignment-item {
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+    padding: 0 10px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 1rem;
+    text-align: center;
+    padding: 0 10px;
+  }
+  
+  .tab-navigation {
+    padding: 0 10px;
+    width: calc(100% - 20px);
+    justify-content: center;
+  }
+  
+  .tab-button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+  
+  .tab-content {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  .weekly-schedule {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .day-schedule {
+    padding: 20px;
     margin: 0 10px;
     width: calc(100% - 20px);
+    box-sizing: border-box;
+  }
+  
+  .day-title {
+    font-size: 1.5rem;
+  }
+  
+  .class-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .class-item {
+    padding: 16px;
+    margin: 0 0 15px 0;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .assignments-container {
@@ -479,23 +541,69 @@ h2 {
     box-sizing: border-box;
   }
   
+  .assignment-item {
+    margin: 0 0 15px 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
   .assignment-header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 10px;
   }
   
-  h1{font-size:2rem}
-  .weekly-schedule{grid-template-columns:1fr;gap:25px}
-  .day-schedule{padding:25px}
-  .day-title{font-size:1.5rem}
-  .class-header{flex-direction:column;align-items:flex-start}
-  .class-item{padding:16px}
-  .admin-form{grid-template-columns:1fr;}
-  .floating-action{bottom:20px;right:20px;width:50px;height:50px}
+  .assignment-title {
+    font-size: 1.1rem;
+    min-width: unset;
+  }
+  
+  .assignment-due {
+    font-size: 0.9rem;
+  }
+  
+  .assignment-description {
+    font-size: 0.9rem;
+  }
+  
+  .admin-form {
+    grid-template-columns: 1fr;
+  }
+  
+  .floating-action {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .admin-section {
+    margin: 20px 10px;
+    width: calc(100% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .day-title {
+    font-size: 1.3rem;
+  }
+  
+  .subject-code {
+    font-size: 1.1rem;
+  }
+  
+  .assignment-title {
+    font-size: 1rem;
+  }
 }
 </style>
 </head>
 <body>
+<!-- The rest of your HTML remains the same -->
 <h1>BSIT 2106 CLASS SCHEDULE</h1>
 <h2>Created by: Bitancor, Joshua Vincent</h2>
 
@@ -763,7 +871,7 @@ h2 {
           <div class="class-item">
             <div class="class-header">
               <div class="subject-code">PHY 101</div>
-              <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4ODA4MDE0MDEy" target="_blank">Classroom</a>
+              <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4ODA4MDE0MDE2" target="_blank">Classroom</a>
             </div>
             <div class="subject-name">Calculus-Based Physics</div>
             <div class="class-details">
@@ -1044,4 +1152,3 @@ loadAssignments();
 </script>
 </body>
 </html>
-
