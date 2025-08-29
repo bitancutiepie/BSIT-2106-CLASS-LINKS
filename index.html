@@ -466,6 +466,24 @@ h2 {
 }
 
 @media (max-width:768px){
+
+  .assignment-item {
+    margin: 0 10px;
+    width: calc(100% - 20px);
+  }
+  
+  .assignments-container {
+    padding: 20px 15px;
+    margin: 0 10px;
+    width: calc(100% - 20px);
+    box-sizing: border-box;
+  }
+  
+  .assignment-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
   h1{font-size:2rem}
   .weekly-schedule{grid-template-columns:1fr;gap:25px}
   .day-schedule{padding:25px}
@@ -1026,3 +1044,4 @@ loadAssignments();
 </script>
 </body>
 </html>
+
