@@ -393,6 +393,23 @@ h2 {
 #skip-button.enabled:hover {
     background-color: #B20710;
 }
+/* NEW: VOLUME CONTROL BUTTON */
+#volume-control {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
 
 
 /* Mobile Responsive Styles */
@@ -430,11 +447,14 @@ h2 {
 </head>
 <body>
 <div id="ad-overlay">
-    <video id="ad-video" autoplay muted playsinline>
+    <video id="ad-video" autoplay playsinline>
         <source src="pat_ads.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
     <button id="skip-button">Skip in 5</button>
+    <div id="volume-control">
+        <i class="fas fa-volume-mute"></i>
+    </div>
 </div>
 
 
@@ -780,17 +800,29 @@ function startAd() {
     const adOverlay = document.getElementById('ad-overlay');
     const adVideo = document.getElementById('ad-video');
     const skipButton = document.getElementById('skip-button');
+    const volumeControl = document.getElementById('volume-control');
     let countdown = 5;
 
-    // Show the ad
+    // Start video muted by default
+    adVideo.muted = true;
     adOverlay.style.display = 'flex';
-    try {
-        adVideo.play();
-    } catch (error) {
-        console.log("Autoplay was blocked, user must interact first.");
+
+    // Try to play the video
+    let playPromise = adVideo.play();
+    if (playPromise !== undefined) {
+        playPromise.catch(error => {
+            console.log("Autoplay was blocked. User must interact to start video.");
+            // Optionally, show a play button here if autoplay fails
+        });
     }
 
+    // Unmute logic
+    volumeControl.addEventListener('click', () => {
+        adVideo.muted = !adVideo.muted;
+        volumeControl.innerHTML = adVideo.muted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-high"></i>';
+    });
 
+    // Countdown logic
     const countdownInterval = setInterval(() => {
         countdown--;
         if (countdown > 0) {
