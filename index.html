@@ -21,6 +21,7 @@
 
 
 <style>
+/* --- ALL YOUR EXISTING STYLES ARE HERE --- */
 body {
   margin: 0;
   padding: 0;
@@ -32,7 +33,7 @@ body {
   background: url('https://batstateu.edu.ph/wp-content/uploads/2020/11/Alangilan-entrance-facade.jpg') no-repeat center center/cover;
   overflow-x: hidden;
   color: white;
-  font-family: 'Poppins', 'Segoe UI', sans-serif; /* UPDATED FONT */
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
   position: relative;
 }
 
@@ -50,7 +51,7 @@ body::before {
 
 h1 {
   font-size: 2.8rem;
-  font-weight: 800; /* Bolder Font */
+  font-weight: 800;
   text-shadow: 0 0 30px #ffffff;
   margin: 30px 0 10px 0;
   text-align: center;
@@ -68,11 +69,50 @@ h1 {
 h2 {
   font-size: 1.2rem;
   margin-bottom: 20px;
-  font-weight: 400; /* Regular weight */
+  font-weight: 400;
   opacity: 0.9;
 }
 
-/* Tab Navigation */
+.time-shortcut-container {
+    width: 95%;
+    max-width: 800px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#live-clock {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 15px 25px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+}
+
+#current-class-shortcut {
+    background: linear-gradient(45deg, #b30000, #ff4d4d);
+    border-radius: 20px;
+    padding: 20px;
+    border: 2px solid #ff4d4d;
+    box-shadow: 0 8px 30px rgba(179,0,0,0.5);
+    animation: pulseGlow 2.5s infinite;
+}
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 8px 30px rgba(179,0,0,0.5); }
+    50% { box-shadow: 0 8px 45px rgba(255,77,77,0.7); }
+}
+#current-class-shortcut .shortcut-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .tab-navigation {
   display: flex;
   justify-content: center;
@@ -96,7 +136,7 @@ h2 {
 
 .tab-button:hover {
   background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px); /* ADDED ANIMATION */
+  transform: translateY(-2px);
 }
 
 .tab-button.active {
@@ -111,7 +151,7 @@ h2 {
 
 .tab-pane {
   display: none;
-  animation: fadeIn 0.5s ease; /* ADDED ANIMATION */
+  animation: fadeIn 0.5s ease;
 }
 
 @keyframes fadeIn {
@@ -131,7 +171,7 @@ h2 {
 }
 
 .day-schedule, .assignments-container {
-  background: rgba(0, 0, 0, 0.2); /* Darker background for readability */
+  background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(15px);
   border-radius: 25px;
   padding: 30px;
@@ -162,7 +202,7 @@ h2 {
 }
 .day-title {
   font-size: 1.8rem;
-  font-weight: 700; /* Bolder Font */
+  font-weight: 700;
   color: #ffffff;
   text-shadow: 0 0 20px #ff4d4d;
   text-align: center;
@@ -198,7 +238,7 @@ h2 {
   gap: 10px;
 }
 .class-time {
-  font-weight: 600; /* Bolder Font */
+  font-weight: 600;
   font-size: 1.1em;
   color: white; 
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.8); 
@@ -247,7 +287,7 @@ h2 {
   background: linear-gradient(45deg, #0099ff, #0066cc);
 }
 .subject-code {
-  font-weight: 700; /* Bolder Font */
+  font-weight: 700;
   font-size: 1.2rem;
   color: #ffffff; 
   text-shadow: 0 0 8px rgba(255, 77, 77, 0.7); 
@@ -283,110 +323,19 @@ h2 {
   color: #ffffff;
 }
 
-/* Assignments Section Styles */
-.assignment-list {
-  display: grid;
-  gap: 20px;
-}
-
-.assignment-item {
-  background: rgba(255,255,255,0.12);
-  border-radius: 18px;
-  padding: 20px;
-  border: 1px solid rgba(255,255,255,0.3);
-  transition: all 0.4s ease;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.assignment-item:hover {
-  background: rgba(255,255,255,0.2);
-  transform: translateX(8px);
-  box-shadow: 0 10px 30px rgba(255,77,77,0.3);
-}
-
-.assignment-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 15px;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.assignment-title {
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: #ffffff; 
-  text-shadow: 0 0 8px rgba(255, 77, 77, 0.7); 
-  margin-bottom: 8px;
-  flex: 1;
-  min-width: 200px;
-}
-
-.assignment-subject {
-  background: rgba(255,77,77,0.4);
-  border-radius: 12px;
-  padding: 6px 14px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  border: 1px solid rgba(255,77,77,0.6);
-  color: #ffffff;
-}
-
-.assignment-due {
-  font-weight: 600;
-  font-size: 1em;
-  color: white; 
-  text-shadow: 0 0 6px rgba(0, 0, 0, 0.8); 
-}
-
-.assignment-description {
-  font-size: 0.95rem;
-  margin-bottom: 15px;
-  color: #ffffff;
-  overflow-wrap: break-word;
-  word-break: break-word;
-  hyphens: auto;
-  max-width: 100%;
-}
-
-.assignment-item.overdue .assignment-due {
-  color: #ff4d4d;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.6; }
-  100% { opacity: 1; }
-}
-
-.no-assignments {
-  text-align: center;
-  padding: 30px;
-  font-style: italic;
-  opacity: 0.8;
-}
-
-/* Loading Spinner */
-.loader {
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #b30000;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 1s linear infinite;
-  margin: 20px auto;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-
-/* Admin styles are kept functional but hidden by default */
+.assignment-list { display: grid; gap: 20px; }
+.assignment-item { background: rgba(255,255,255,0.12); border-radius: 18px; padding: 20px; border: 1px solid rgba(255,255,255,0.3); transition: all 0.4s ease; width: 100%; box-sizing: border-box; }
+.assignment-item:hover { background: rgba(255,255,255,0.2); transform: translateX(8px); box-shadow: 0 10px 30px rgba(255,77,77,0.3); }
+.assignment-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
+.assignment-title { font-weight: 700; font-size: 1.2rem; color: #ffffff; text-shadow: 0 0 8px rgba(255, 77, 77, 0.7); margin-bottom: 8px; flex: 1; min-width: 200px; }
+.assignment-subject { background: rgba(255,77,77,0.4); border-radius: 12px; padding: 6px 14px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(255,77,77,0.6); color: #ffffff; }
+.assignment-due { font-weight: 600; font-size: 1em; color: white; text-shadow: 0 0 6px rgba(0, 0, 0, 0.8); }
+.assignment-description { font-size: 0.95rem; margin-bottom: 15px; color: #ffffff; overflow-wrap: break-word; word-break: break-word; hyphens: auto; max-width: 100%; }
+.assignment-item.overdue .assignment-due { color: #ff4d4d; animation: pulse 2s infinite; }
+@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
+.no-assignments { text-align: center; padding: 30px; font-style: italic; opacity: 0.8; }
+.loader { border: 5px solid #f3f3f3; border-top: 5px solid #b30000; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 20px auto; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 .admin-section { display: none; background: rgba(0, 0, 0, 0.3); border-radius: 18px; padding: 20px; margin-top: 20px; width: 100%; box-sizing: border-box; }
 .admin-toggle { background: linear-gradient(45deg, #0066cc, #0099ff); color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: 600; margin-bottom: 15px; }
 .admin-form { display: none; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
@@ -400,32 +349,58 @@ h2 {
 .add-assignment-btn:hover { background: linear-gradient(45deg, #00ff00, #00b300); }
 .export-btn { background: linear-gradient(45deg, #ff9900, #ffcc00); color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: 600; margin-top: 10px; }
 .export-btn:hover { background: linear-gradient(45deg, #ffcc00, #ff9900); }
+.floating-action { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(45deg,#b30000,#ff4d4d); border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(179,0,0,0.4); cursor: pointer; transition: all 0.3s ease; z-index: 1000; }
+.floating-action:hover { transform: scale(1.1); box-shadow: 0 12px 35px rgba(179,0,0,0.6); }
 
+/* ADVERTISEMENT STYLES */
+#ad-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#ad-video {
+    width: 80%;
+    max-width: 900px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+#skip-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#skip-button:not(.enabled):hover {
+    cursor: not-allowed;
+}
+#skip-button.enabled {
+    background-color: #E50914; /* Red color when skippable */
+}
+#skip-button.enabled:hover {
+    background-color: #B20710;
+}
 
-.floating-action {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: linear-gradient(45deg,#b30000,#ff4d4d);
-  border-radius: 50%;
-  width: 60px; height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 25px rgba(179,0,0,0.4);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 1000;
-}
-.floating-action:hover {
-  transform: scale(1.1);
-  box-shadow: 0 12px 35px rgba(179,0,0,0.6);
-}
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
   h1 { font-size: 2rem; padding: 0 10px; text-align: center; }
   h2 { font-size: 1rem; text-align: center; padding: 0 10px; }
+  .time-shortcut-container { width: 100%; padding: 0 10px; box-sizing: border-box; }
+  #live-clock { font-size: 1.2rem; }
   .tab-navigation { padding: 0 10px; width: calc(100% - 20px); justify-content: center; }
   .tab-button { padding: 10px 15px; font-size: 0.9rem; margin-bottom: 5px; }
   .tab-content { width: 100%; padding: 0 10px; box-sizing: border-box; }
@@ -454,8 +429,22 @@ h2 {
 </style>
 </head>
 <body>
+<div id="ad-overlay">
+    <video id="ad-video" autoplay muted playsinline>
+        <source src="pat_ads.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <button id="skip-button">Skip in 5</button>
+</div>
+
+
 <h1>BSIT 2106 CLASS SCHEDULE</h1>
 <h2>Created by: Bitancor, Joshua Vincent</h2>
+
+<div class="time-shortcut-container">
+    <div id="live-clock"></div>
+    <div id="current-class-shortcut" style="display: none;"></div>
+</div>
 
 <div class="tab-navigation">
   <button class="tab-button active" data-tab="schedule">Class Schedule</button>
@@ -695,19 +684,11 @@ h2 {
               <div class="subject-code">LITR 102</div>
               <a class="classroom-btn" href="https://classroom.google.com/u/0/c/NzkxNzY0OTY3Njc4" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
             </div>
-            <div class="subject-name">ASEAN Literature</div>
-            <div class="class-details">
-              <span class="instructor">BAXA, ELAINE NOREEN G.</span>
-            </div>
           </div>
           <div class="class-item">
             <div class="class-header">
               <div class="subject-code">IT 212</div>
               <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4OTQwMTQ5ODI5" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
-            </div>
-            <div class="subject-name">Computer Networking 1</div>
-            <div class="class-details">
-              <span class="instructor">RODRIGUEZ, RAYMOND KIT M.</span>
             </div>
           </div>
           <div class="class-item">
@@ -715,19 +696,11 @@ h2 {
               <div class="subject-code">PHY 101</div>
               <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4ODA4MDE0MDEy" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
             </div>
-            <div class="subject-name">Calculus-Based Physics</div>
-            <div class="class-details">
-              <span class="instructor">TOBEO, RRAYNAN A.</span>
-            </div>
           </div>
           <div class="class-item">
             <div class="class-header">
               <div class="subject-code">CS 211</div>
               <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk1NTE2MzU5NTc3" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
-            </div>
-            <div class="subject-name">Object-Oriented Programming</div>
-            <div class="class-details">
-              <span class="instructor">COMIA, JURIEL U.</span>
             </div>
           </div>
           <div class="class-item">
@@ -735,19 +708,11 @@ h2 {
               <div class="subject-code">CS 121</div>
               <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4NTU5Mjg1Nzg4" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
             </div>
-            <div class="subject-name">Advanced Computer Programming</div>
-            <div class="class-details">
-              <span class="instructor">REYES, GLYDEL ANN E.</span>
-            </div>
           </div>
           <div class="class-item">
             <div class="class-header">
               <div class="subject-code">PATHFit 3</div>
               <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk1NTA5NTc5Nzgz" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
-            </div>
-            <div class="subject-name">Traditional and Recreational Games</div>
-            <div class="class-details">
-              <span class="instructor">DE CASTRO, JOEY R.</span>
             </div>
           </div>
           <div class="class-item">
@@ -755,19 +720,11 @@ h2 {
               <div class="subject-code">CpE 405</div>
               <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4ODIzMTQ3Mzkz" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
             </div>
-            <div class="subject-name">Discrete Mathematics</div>
-            <div class="class-details">
-              <span class="instructor">DALISAY, CHRISTI NORMA C.</span>
-            </div>
           </div>
           <div class="class-item">
             <div class="class-header">
               <div class="subject-code">IT 211</div>
               <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk1NTE4MzkzMzIw" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
-            </div>
-            <div class="subject-name">Database Management System</div>
-            <div class="class-details">
-              <span class="instructor">MANGUBAT, JELEEN M.</span>
             </div>
           </div>
         </div>
@@ -790,38 +747,7 @@ h2 {
       <button class="admin-toggle" onclick="toggleAdminForm()">Show/Hide Form</button>
       
       <form class="admin-form" id="adminForm">
-        <div class="form-group">
-          <label for="assignmentTitle">Assignment Title</label>
-          <input type="text" id="assignmentTitle" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="assignmentSubject">Subject</label>
-          <select id="assignmentSubject" required>
-            <option value="">Select a subject</option>
-            <option value="IT 211">IT 211 - Database Management System</option>
-            <option value="LITR 102">LITR 102 - ASEAN Literature</option>
-            <option value="CpE 405">CpE 405 - Discrete Mathematics</option>
-            <option value="PATHFit 3">PATHFit 3 - Traditional and Recreational Games</option>
-            <option value="CS 211">CS 211 - Object-Oriented Programming</option>
-            <option value="IT 212">IT 212 - Computer Networking 1</option>
-            <option value="CS 121">CS 121 - Advanced Computer Programming</option>
-            <option value="PHY 101">PHY 101 - Calculus-Based Physics</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label for="assignmentDueDate">Due Date (Optional)</label>
-          <input type="datetime-local" id="assignmentDueDate">
-        </div>
-        
-        <div class="form-group full-width">
-          <label for="assignmentDescription">Description (Optional)</label>
-          <textarea id="assignmentDescription"></textarea>
-        </div>
-        
-        <button type="submit" class="add-assignment-btn">Add Assignment</button>
-      </form>
+        </form>
       
       <div>
         <h4>Assignment Management</h4>
@@ -835,7 +761,7 @@ h2 {
       <h3 class="day-title"><i class="fas fa-book-open"></i>REVIEW MATERIALS</h3>
       <div style="text-align: center; padding: 40px 0;">
         <p style="margin-bottom: 25px;">All review materials are located in a shared Google Drive folder.</p>
-        <a href="https://drive.google.com/drive/folders/1n50vswAbnj1KnoxB0Obp3_vcrouz10CW?usp=sharing" class="meet-btn" target="_blank"><i class="fab fa-google-drive"></i>Open G-Drive Folder</a>
+        <a href="#" class="meet-btn" target="_blank"><i class="fab fa-google-drive"></i>Open G-Drive Folder</a>
       </div>
     </div>
   </div>
@@ -847,7 +773,63 @@ h2 {
 </div>
 
 <script>
-// Tab functionality
+// --- ALL YOUR EXISTING JAVASCRIPT IS HERE ---
+
+// --- NEW: ADVERTISEMENT JAVASCRIPT ---
+function startAd() {
+    const adOverlay = document.getElementById('ad-overlay');
+    const adVideo = document.getElementById('ad-video');
+    const skipButton = document.getElementById('skip-button');
+    let countdown = 5;
+
+    // Show the ad
+    adOverlay.style.display = 'flex';
+    try {
+        adVideo.play();
+    } catch (error) {
+        console.log("Autoplay was blocked, user must interact first.");
+    }
+
+
+    const countdownInterval = setInterval(() => {
+        countdown--;
+        if (countdown > 0) {
+            skipButton.textContent = `Skip in ${countdown}`;
+        } else {
+            clearInterval(countdownInterval);
+            skipButton.textContent = 'Skip Ad';
+            skipButton.classList.add('enabled');
+            skipButton.addEventListener('click', closeAd);
+        }
+    }, 1000);
+
+    adVideo.addEventListener('ended', closeAd);
+
+    function closeAd() {
+        adOverlay.style.display = 'none';
+        adVideo.pause();
+    }
+}
+
+
+const scheduleData = [
+    { day: 1, startTime: '08:00', endTime: '10:00', code: 'IT 211', name: 'Database Management System', meetLink: 'https://meet.google.com/nmd-kafg-mjy?authuser=0&hs=179' },
+    { day: 1, startTime: '10:00', endTime: '11:30', code: 'LITR 102', name: 'ASEAN Literature', meetLink: 'https://meet.google.com/dwz-cjbm-tke?authuser=0&hs=179' },
+    { day: 1, startTime: '13:00', endTime: '14:30', code: 'CpE 405', name: 'Discrete Mathematics', meetLink: 'https://meet.google.com/map-mwcx-mqc?authuser=0&hs=179' },
+    { day: 1, startTime: '15:00', endTime: '17:00', code: 'PATHFit 3', name: 'Traditional and Recreational Games', meetLink: 'https://meet.google.com/wey-kdwq-swn?authuser=0&hs=179' },
+    { day: 2, startTime: '07:00', endTime: '10:00', code: 'CS 211', name: 'Object-Oriented Programming', meetLink: 'https://meet.google.com/yfw-wcyq-nmi?authuser=0&hs=179' },
+    { day: 2, startTime: '11:00', endTime: '13:00', code: 'IT 212', name: 'Computer Networking 1', meetLink: 'https://meet.google.com/obw-kfzu-wrm?authuser=0&hs=179' },
+    { day: 2, startTime: '13:00', endTime: '16:00', code: 'CS 121', name: 'Advanced Computer Programming', meetLink: 'https://meet.google.com/sdp-yyyx-joy?authuser=0&hs=179' },
+    { day: 2, startTime: '16:00', endTime: '19:00', code: 'PHY 101', name: 'Calculus-Based Physics', meetLink: 'https://meet.google.com/asz-zjvf-dts?authuser=0&hs=179' },
+    { day: 3, startTime: '07:00', endTime: '08:30', code: 'CpE 405', name: 'Discrete Mathematics', meetLink: 'https://meet.google.com/map-mwcx-mqc?authuser=0&hs=179' },
+    { day: 3, startTime: '08:30', endTime: '10:00', code: 'LITR 102', name: 'ASEAN Literature', meetLink: 'https://meet.google.com/dwz-cjbm-tke?authuser=0&hs=179' },
+    { day: 3, startTime: '10:00', endTime: '12:00', code: 'PHY 101', name: 'Calculus-Based Physics', meetLink: 'https://meet.google.com/asz-zjvf-dts' },
+    { day: 3, startTime: '13:00', endTime: '16:00', code: 'IT 212', name: 'Computer Networking 1', meetLink: 'https://meet.google.com/obw-kfzu-wrm?authuser=0&hs=179' },
+    { day: 4, startTime: '08:00', endTime: '10:00', code: 'CS 121', name: 'Advanced Computer Programming', meetLink: 'https://meet.google.com/sdp-yyyx-joy?authuser=0&hs=179' },
+    { day: 4, startTime: '10:00', endTime: '12:00', code: 'CS 211', name: 'Object-Oriented Programming', meetLink: 'https://meet.google.com/yfw-wcyq-nmi?authuser=0&hs=179' },
+    { day: 4, startTime: '13:00', endTime: '16:00', code: 'IT 211', name: 'Database Management System', meetLink: 'https://meet.google.com/nmd-kafg-mjy?authuser=0&hs=179' },
+];
+
 document.querySelectorAll('.tab-button').forEach(button => {
   button.addEventListener('click', () => {
     document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
@@ -866,11 +848,7 @@ async function loadAssignments() {
   try {
     const response = await fetch('https://bitancutiepie.github.io/BSIT-2106-CLASS-LINKS/assignments.json');
     if (!response.ok) {
-      if (response.status === 404) {
-        assignments = [];
-        renderAssignments();
-        return;
-      }
+      if (response.status === 404) { assignments = []; renderAssignments(); return; }
       throw new Error('Failed to load assignments');
     }
     assignments = await response.json();
@@ -916,7 +894,6 @@ function renderAssignments() {
   }).join('');
 }
 
-// Admin Panel Functions
 function toggleAdminForm() { document.getElementById('adminForm').classList.toggle('active'); }
 function addAssignment(event) {
   event.preventDefault();
@@ -946,15 +923,47 @@ function isAdmin() {
   return urlParams.get('admin') === 'true';
 }
 
-// Initialize
+function updateClockAndShortcut() {
+    const clockElement = document.getElementById('live-clock');
+    const shortcutElement = document.getElementById('current-class-shortcut');
+    const now = new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Manila"}));
+    const dayOfWeek = now.getDay();
+    const currentTime = ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2);
+    const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+    const dateString = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    clockElement.innerHTML = `${dateString} | ${timeString}`;
+    const currentClass = scheduleData.find(cls => 
+        cls.day === dayOfWeek && 
+        currentTime >= cls.startTime && 
+        currentTime < cls.endTime
+    );
+    if (currentClass) {
+        shortcutElement.innerHTML = `
+            <div class="shortcut-title">ONGOING CLASS</div>
+            <div class="class-item" style="margin-bottom: 0;">
+                <div class="class-header">
+                    <div class="subject-code">${currentClass.code}</div>
+                    <a class="meet-btn" href="${currentClass.meetLink}" target="_blank"><i class="fas fa-video"></i>Join Now</a>
+                </div>
+                <div class="subject-name">${currentClass.name}</div>
+            </div>
+        `;
+        shortcutElement.style.display = 'block';
+    } else {
+        shortcutElement.style.display = 'none';
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('adminForm').addEventListener('submit', addAssignment);
     if (isAdmin()) {
       document.getElementById('adminSection').style.display = 'block';
     }
     loadAssignments();
+    updateClockAndShortcut();
+    setInterval(updateClockAndShortcut, 1000);
+    startAd();
 });
 </script>
 </body>
 </html>
-
