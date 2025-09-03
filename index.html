@@ -766,7 +766,38 @@ h2 {
       <button class="admin-toggle" onclick="toggleAdminForm()">Show/Hide Form</button>
       
       <form class="admin-form" id="adminForm">
-        </form>
+        <div class="form-group">
+          <label for="assignmentTitle">Assignment Title</label>
+          <input type="text" id="assignmentTitle" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="assignmentSubject">Subject</label>
+          <select id="assignmentSubject" required>
+            <option value="">Select a subject</option>
+            <option value="IT 211">IT 211 - Database Management System</option>
+            <option value="LITR 102">LITR 102 - ASEAN Literature</option>
+            <option value="CpE 405">CpE 405 - Discrete Mathematics</option>
+            <option value="PATHFit 3">PATHFit 3 - Traditional and Recreational Games</option>
+            <option value="CS 211">CS 211 - Object-Oriented Programming</option>
+            <option value="IT 212">IT 212 - Computer Networking 1</option>
+            <option value="CS 121">CS 121 - Advanced Computer Programming</option>
+            <option value="PHY 101">PHY 101 - Calculus-Based Physics</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="assignmentDueDate">Due Date (Optional)</label>
+          <input type="datetime-local" id="assignmentDueDate">
+        </div>
+        
+        <div class="form-group full-width">
+          <label for="assignmentDescription">Description (Optional)</label>
+          <textarea id="assignmentDescription"></textarea>
+        </div>
+        
+        <button type="submit" class="add-assignment-btn">Add Assignment</button>
+      </form>
       
       <div>
         <h4>Assignment Management</h4>
@@ -794,21 +825,29 @@ h2 {
 <script>
 // --- ALL YOUR EXISTING JAVASCRIPT IS HERE ---
 
-// --- NEW: ADVERTISEMENT JAVASCRIPT ---
+// --- ADVERTISEMENT JAVASCRIPT ---
 function startAd() {
     const adOverlay = document.getElementById('ad-overlay');
     const adVideo = document.getElementById('ad-video');
     const skipButton = document.getElementById('skip-button');
+    const volumeControl = document.getElementById('volume-control'); // Reference to the volume button
     let countdown = 5;
 
-    // Show the ad
+    adVideo.muted = true; // Start muted by default
     adOverlay.style.display = 'flex';
-    try {
-        adVideo.play();
-    } catch (error) {
-        console.log("Autoplay was blocked, user must interact first.");
+
+    let playPromise = adVideo.play();
+    if (playPromise !== undefined) {
+        playPromise.catch(error => {
+            console.log("Autoplay was blocked.");
+        });
     }
 
+    // **FIXED: UNMUTE BUTTON LOGIC**
+    volumeControl.addEventListener('click', () => {
+        adVideo.muted = !adVideo.muted;
+        volumeControl.innerHTML = adVideo.muted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-high"></i>';
+    });
 
     const countdownInterval = setInterval(() => {
         countdown--;
@@ -974,7 +1013,12 @@ function updateClockAndShortcut() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('adminForm').addEventListener('submit', addAssignment);
+    // **FIXED: Ensure the form listener is attached even if the form isn't visible**
+    const adminForm = document.getElementById('adminForm');
+    if(adminForm) {
+      adminForm.addEventListener('submit', addAssignment);
+    }
+
     if (isAdmin()) {
       document.getElementById('adminSection').style.display = 'block';
     }
