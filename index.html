@@ -393,7 +393,6 @@ h2 {
 #skip-button.enabled:hover {
     background-color: #B20710;
 }
-/* NEW: VOLUME CONTROL BUTTON */
 #volume-control {
     position: absolute;
     bottom: 20px;
@@ -447,7 +446,7 @@ h2 {
 </head>
 <body>
 <div id="ad-overlay">
-    <video id="ad-video" autoplay playsinline>
+    <video id="ad-video" autoplay playsinline muted>
         <source src="pat_ads.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -781,7 +780,7 @@ h2 {
       <h3 class="day-title"><i class="fas fa-book-open"></i>REVIEW MATERIALS</h3>
       <div style="text-align: center; padding: 40px 0;">
         <p style="margin-bottom: 25px;">All review materials are located in a shared Google Drive folder.</p>
-        <a href="https://drive.google.com/drive/folders/1n50vswAbnj1KnoxB0Obp3_vcrouz10CW?usp=drive_link" class="meet-btn" target="_blank"><i class="fab fa-google-drive"></i>Open G-Drive Folder</a>
+        <a href="#" class="meet-btn" target="_blank"><i class="fab fa-google-drive"></i>Open G-Drive Folder</a>
       </div>
     </div>
   </div>
@@ -800,29 +799,17 @@ function startAd() {
     const adOverlay = document.getElementById('ad-overlay');
     const adVideo = document.getElementById('ad-video');
     const skipButton = document.getElementById('skip-button');
-    const volumeControl = document.getElementById('volume-control');
     let countdown = 5;
 
-    // Start video muted by default
-    adVideo.muted = true;
+    // Show the ad
     adOverlay.style.display = 'flex';
-
-    // Try to play the video
-    let playPromise = adVideo.play();
-    if (playPromise !== undefined) {
-        playPromise.catch(error => {
-            console.log("Autoplay was blocked. User must interact to start video.");
-            // Optionally, show a play button here if autoplay fails
-        });
+    try {
+        adVideo.play();
+    } catch (error) {
+        console.log("Autoplay was blocked, user must interact first.");
     }
 
-    // Unmute logic
-    volumeControl.addEventListener('click', () => {
-        adVideo.muted = !adVideo.muted;
-        volumeControl.innerHTML = adVideo.muted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-high"></i>';
-    });
 
-    // Countdown logic
     const countdownInterval = setInterval(() => {
         countdown--;
         if (countdown > 0) {
@@ -999,4 +986,3 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
