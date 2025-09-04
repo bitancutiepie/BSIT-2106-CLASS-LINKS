@@ -1,9 +1,16 @@
 [
- {
+  {
     "title": "Bring the following on Monday:",
     "subject": "PATHFit 3",
     "dueDate": null,
     "description": "- Index card\n- Badminton Racket (Optional)\n- Shuttlecock \n",
     "id": 1756859832280
+  },
+  {
+    "title": "Quiz 1",
+    "subject": "CS 121",
+    "dueDate": null,
+    "description": "Prepare for our first quiz in Advanced Computer Programming next week. Good luck!",
+    "id": 1756951599765
   }
 ]
