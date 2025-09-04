@@ -7,7 +7,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://bitancutiepie.github.io/BSIT-2106-CLASS-LINKS/patrick.jpg" />
 <link rel="icon" href="patrick.jpg" type="image/jpeg">
-<link rel="shortcut icon" href="patrick.jpg" type="image/jpeg">  
+<link rel="shortcut icon" href="patrick.jpg" type="image/jpeg">
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -222,6 +222,7 @@ h2 {
   border: 1px solid rgba(255,255,255,0.3);
   transition: all 0.4s ease;
   margin-bottom: 15px; 
+  position: relative;
 }
 
 .class-item:hover {
@@ -322,7 +323,26 @@ h2 {
   font-size: 0.8rem;
   color: #ffffff;
 }
+.assignment-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5rem;
+  color: #00ff00; /* Green color to signify an assignment */
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+}
 
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
 .assignment-list { display: grid; gap: 20px; }
 .assignment-item { background: rgba(255,255,255,0.12); border-radius: 18px; padding: 20px; border: 1px solid rgba(255,255,255,0.3); transition: all 0.4s ease; width: 100%; box-sizing: border-box; }
 .assignment-item:hover { background: rgba(255,255,255,0.2); transform: translateX(8px); box-shadow: 0 10px 30px rgba(255,77,77,0.3); }
@@ -410,6 +430,62 @@ h2 {
     cursor: pointer;
 }
 
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 0 40px rgba(255,77,77,0.4);
+    animation: fadeIn 0.5s ease;
+}
+.modal-content h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 0 20px #ff4d4d;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.close {
+    color: #ffffff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #ff4d4d;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-assignments .assignment-item {
+    margin-bottom: 20px;
+}
+
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
@@ -434,6 +510,7 @@ h2 {
   .admin-form { grid-template-columns: 1fr; }
   .floating-action { bottom: 20px; right: 20px; width: 50px; height: 50px; }
   .admin-section { margin: 20px 0; width: 100%; box-sizing: border-box;}
+  .modal-content { width: 95%; padding: 20px; }
 }
 
 @media (max-width: 480px) {
@@ -467,7 +544,6 @@ h2 {
 
 <div class="tab-navigation">
   <button class="tab-button active" data-tab="schedule">Class Schedule</button>
-  <button class="tab-button" data-tab="classroom">Classroom Links</button>
   <button class="tab-button" data-tab="assignments">Assignments</button>
   <button class="tab-button" data-tab="reviewers">Reviewers</button>
 </div>
@@ -478,10 +554,13 @@ h2 {
       <div class="day-schedule">
         <h3 class="day-title"><i class="fas fa-calendar-day"></i>MONDAY</h3>
         <div class="day-classes">
-          <div class="class-item">
+          <div class="class-item" data-subject-code="IT 211">
             <div class="class-header">
               <div class="class-time">08:00 AM - 10:00 AM</div>
-              <a class="meet-btn" href="https://meet.google.com/nmd-kafg-mjy?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a class="meet-btn" href="https://meet.google.com/nmd-kafg-mjy?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+                <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk1NTE4MzkzMzIw" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
+              </div>
             </div>
             <div class="subject-code">IT 211</div>
             <div class="subject-name">Database Management System</div>
@@ -490,10 +569,13 @@ h2 {
               <span class="instructor">MANGUBAT, JELEEN M.</span>
             </div>
           </div>
-          <div class="class-item">
+          <div class="class-item" data-subject-code="LITR 102">
             <div class="class-header">
               <div class="class-time">10:00 AM - 11:30 AM</div>
-              <a class="meet-btn" href="https://meet.google.com/dwz-cjbm-tke?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a class="meet-btn" href="https://meet.google.com/dwz-cjbm-tke?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+                <a class="classroom-btn" href="https://classroom.google.com/u/0/c/NzkxNzY0OTY3Njc4" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
+              </div>
             </div>
             <div class="subject-code">LITR 102</div>
             <div class="subject-name">ASEAN Literature</div>
@@ -502,10 +584,13 @@ h2 {
               <span class="instructor">BAXA, ELAINE NOREEN G.</span>
             </div>
           </div>
-          <div class="class-item">
+          <div class="class-item" data-subject-code="CpE 405">
             <div class="class-header">
               <div class="class-time">01:00 PM - 02:30 PM</div>
-              <a class="meet-btn" href="https://meet.google.com/map-mwcx-mqc?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a class="meet-btn" href="https://meet.google.com/map-mwcx-mqc?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+                <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4ODIzMTQ3Mzkz" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
+              </div>
             </div>
             <div class="subject-code">CpE 405</div>
             <div class="subject-name">Discrete Mathematics</div>
@@ -514,10 +599,13 @@ h2 {
               <span class="instructor">DALISAY, CHRISTI NORMA C.</span>
             </div>
           </div>
-          <div class="class-item">
+          <div class="class-item" data-subject-code="PATHFit 3">
             <div class="class-header">
               <div class="class-time">03:00 PM - 05:00 PM</div>
-              <a class="meet-btn" href="https://meet.google.com/wey-kdwq-swn?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a class="meet-btn" href="https://meet.google.com/wey-kdwq-swn?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+                <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk1NTA5NTc5Nzgz" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
+              </div>
             </div>
             <div class="subject-code">PATHFit 3</div>
             <div class="subject-name">Traditional and Recreational Games</div>
@@ -532,10 +620,13 @@ h2 {
       <div class="day-schedule">
         <h3 class="day-title"><i class="fas fa-calendar-day"></i>TUESDAY</h3>
         <div class="day-classes">
-          <div class="class-item">
+          <div class="class-item" data-subject-code="CS 211">
             <div class="class-header">
               <div class="class-time">07:00 AM - 10:00 AM</div>
-              <a class="meet-btn" href="https://meet.google.com/yfw-wcyq-nmi?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a class="meet-btn" href="https://meet.google.com/yfw-wcyq-nmi?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+                <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk1NTE2MzU5NTc3" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
+              </div>
             </div>
             <div class="subject-code">CS 211</div>
             <div class="subject-name">Object-Oriented Programming</div>
@@ -544,10 +635,13 @@ h2 {
               <span class="instructor">COMIA, JURIEL U.</span>
             </div>
           </div>
-          <div class="class-item">
+          <div class="class-item" data-subject-code="IT 212">
             <div class="class-header">
               <div class="class-time">11:00 AM - 01:00 PM</div>
-              <a class="meet-btn" href="https://meet.google.com/obw-kfzu-wrm?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a class="meet-btn" href="https://meet.google.com/obw-kfzu-wrm?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+                <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4OTQwMTQ5ODI5" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
+              </div>
             </div>
             <div class="subject-code">IT 212</div>
             <div class="subject-name">Computer Networking 1</div>
@@ -556,10 +650,13 @@ h2 {
               <span class="instructor">RODRIGUEZ, RAYMOND KIT M.</span>
             </div>
           </div>
-          <div class="class-item">
+          <div class="class-item" data-subject-code="CS 121">
             <div class="class-header">
               <div class="class-time">01:00 PM - 04:00 PM</div>
-              <a class="meet-btn" href="https://meet.google.com/sdp-yyyx-joy?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a class="meet-btn" href="https://meet.google.com/sdp-yyyx-joy?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+                <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4NTU5Mjg1Nzg4" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
+              </div>
             </div>
             <div class="subject-code">CS 121</div>
             <div class="subject-name">Advanced Computer Programming</div>
@@ -568,10 +665,13 @@ h2 {
               <span class="instructor">REYES, GLYDEL ANN E.</span>
             </div>
           </div>
-          <div class="class-item">
+          <div class="class-item" data-subject-code="PHY 101">
             <div class="class-header">
               <div class="class-time">04:00 PM - 07:00 PM</div>
-              <a class="meet-btn" href="https://meet.google.com/asz-zjvf-dts?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a class="meet-btn" href="https://meet.google.com/asz-zjvf-dts?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+                <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4ODA4MDE0MDEy" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
+              </div>
             </div>
             <div class="subject-code">PHY 101</div>
             <div class="subject-name">Calculus-Based Physics</div>
@@ -586,10 +686,13 @@ h2 {
       <div class="day-schedule">
         <h3 class="day-title"><i class="fas fa-calendar-day"></i>WEDNESDAY</h3>
         <div class="day-classes">
-          <div class="class-item">
+          <div class="class-item" data-subject-code="CpE 405">
             <div class="class-header">
               <div class="class-time">07:00 AM - 08:30 AM</div>
-              <a class="meet-btn" href="https://meet.google.com/map-mwcx-mqc?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a class="meet-btn" href="https://meet.google.com/map-mwcx-mqc?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+                <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4ODIzMTQ3Mzkz" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
+              </div>
             </div>
             <div class="subject-code">CpE 405</div>
             <div class="subject-name">Discrete Mathematics</div>
@@ -598,10 +701,13 @@ h2 {
               <span class="instructor">DALISAY, CHRISTI NORMA C.</span>
             </div>
           </div>
-          <div class="class-item">
+          <div class="class-item" data-subject-code="LITR 102">
             <div class="class-header">
               <div class="class-time">08:30 AM - 10:00 AM</div>
-              <a class="meet-btn" href="https://meet.google.com/dwz-cjbm-tke?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a class="meet-btn" href="https://meet.google.com/dwz-cjbm-tke?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+                <a class="classroom-btn" href="https://classroom.google.com/u/0/c/NzkxNzY0OTY3Njc4" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
+              </div>
             </div>
             <div class="subject-code">LITR 102</div>
             <div class="subject-name">ASEAN Literature</div>
@@ -610,10 +716,13 @@ h2 {
               <span class="instructor">BAXA, ELAINE NOREEN G.</span>
             </div>
           </div>
-          <div class="class-item">
+          <div class="class-item" data-subject-code="PHY 101">
             <div class="class-header">
               <div class="class-time">10:00 AM - 12:00 PM</div>
-              <a class="meet-btn" href="https://meet.google.com/asz-zjvf-dts" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a class="meet-btn" href="https://meet.google.com/asz-zjvf-dts" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+                <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4ODA4MDE0MDEy" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
+              </div>
             </div>
             <div class="subject-code">PHY 101</div>
             <div class="subject-name">Calculus-Based Physics</div>
@@ -622,10 +731,13 @@ h2 {
               <span class="instructor">TOBEO, RAYNAN A.</span>
             </div>
           </div>
-          <div class="class-item">
+          <div class="class-item" data-subject-code="IT 212">
             <div class="class-header">
               <div class="class-time">01:00 PM - 04:00 PM</div>
-              <a class="meet-btn" href="https://meet.google.com/obw-kfzu-wrm?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a class="meet-btn" href="https://meet.google.com/obw-kfzu-wrm?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+                <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4OTQwMTQ5ODI5" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
+              </div>
             </div>
             <div class="subject-code">IT 212</div>
             <div class="subject-name">Computer Networking 1</div>
@@ -640,10 +752,13 @@ h2 {
       <div class="day-schedule">
         <h3 class="day-title"><i class="fas fa-calendar-day"></i>THURSDAY</h3>
         <div class="day-classes">
-          <div class="class-item">
+          <div class="class-item" data-subject-code="CS 121">
             <div class="class-header">
               <div class="class-time">08:00 AM - 10:00 AM</div>
-              <a class="meet-btn" href="https://meet.google.com/sdp-yyyx-joy?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a class="meet-btn" href="https://meet.google.com/sdp-yyyx-joy?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+                <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4NTU5Mjg1Nzg4" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
+              </div>
             </div>
             <div class="subject-code">CS 121</div>
             <div class="subject-name">Advanced Computer Programming</div>
@@ -652,10 +767,13 @@ h2 {
               <span class="instructor">REYES, GLYDEL ANN E.</span>
             </div>
           </div>
-          <div class="class-item">
+          <div class="class-item" data-subject-code="CS 211">
             <div class="class-header">
               <div class="class-time">10:00 AM - 12:00 PM</div>
-              <a class="meet-btn" href="https://meet.google.com/yfw-wcyq-nmi?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a class="meet-btn" href="https://meet.google.com/yfw-wcyq-nmi?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+                <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk1NTE2MzU5NTc3" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
+              </div>
             </div>
             <div class="subject-code">CS 211</div>
             <div class="subject-name">Object-Oriented Programming</div>
@@ -664,10 +782,13 @@ h2 {
               <span class="instructor">COMIA, JURIEL U.</span>
             </div>
           </div>
-          <div class="class-item">
+          <div class="class-item" data-subject-code="IT 211">
             <div class="class-header">
               <div class="class-time">01:00 PM - 04:00 PM</div>
-              <a class="meet-btn" href="https://meet.google.com/nmd-kafg-mjy?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a class="meet-btn" href="https://meet.google.com/nmd-kafg-mjy?authuser=0&hs=179" target="_blank"><i class="fas fa-video"></i>Join Meet</a>
+                <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk1NTE4MzkzMzIw" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
+              </div>
             </div>
             <div class="subject-code">IT 211</div>
             <div class="subject-name">Database Management System</div>
@@ -692,62 +813,6 @@ h2 {
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="tab-pane" id="classroom">
-    <div class="day-schedule">
-        <h3 class="day-title"><i class="fas fa-chalkboard-teacher"></i>CLASSROOM LINKS</h3>
-        <div class="day-classes">
-          <div class="class-item">
-            <div class="class-header">
-              <div class="subject-code">LITR 102</div>
-              <a class="classroom-btn" href="https://classroom.google.com/u/0/c/NzkxNzY0OTY3Njc4" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
-            </div>
-          </div>
-          <div class="class-item">
-            <div class="class-header">
-              <div class="subject-code">IT 212</div>
-              <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4OTQwMTQ5ODI5" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
-            </div>
-          </div>
-          <div class="class-item">
-            <div class="class-header">
-              <div class="subject-code">PHY 101</div>
-              <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4ODA4MDE0MDEy" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
-            </div>
-          </div>
-          <div class="class-item">
-            <div class="class-header">
-              <div class="subject-code">CS 211</div>
-              <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk1NTE2MzU5NTc3" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
-            </div>
-          </div>
-          <div class="class-item">
-            <div class="class-header">
-              <div class="subject-code">CS 121</div>
-              <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4NTU5Mjg1Nzg4" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
-            </div>
-          </div>
-          <div class="class-item">
-            <div class="class-header">
-              <div class="subject-code">PATHFit 3</div>
-              <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk1NTA5NTc5Nzgz" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
-            </div>
-          </div>
-          <div class="class-item">
-            <div class="class-header">
-              <div class="subject-code">CpE 405</div>
-              <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk4ODIzMTQ3Mzkz" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
-            </div>
-          </div>
-          <div class="class-item">
-            <div class="class-header">
-              <div class="subject-code">IT 211</div>
-              <a class="classroom-btn" href="https://classroom.google.com/u/0/c/Nzk1NTE4MzkzMzIw" target="_blank"><i class="fas fa-arrow-right"></i>Classroom</a>
-            </div>
-          </div>
-        </div>
-      </div>
   </div>
 
   <div class="tab-pane" id="assignments">
@@ -816,6 +881,15 @@ h2 {
     </div>
   </div>
 
+</div>
+
+<div id="assignmentModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3 id="modalSubjectTitle">Assignments</h3>
+    <div id="modalAssignmentsList" class="modal-assignments">
+      </div>
+  </div>
 </div>
 
 <div class="floating-action" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
@@ -911,6 +985,7 @@ async function loadAssignments() {
     }
     assignments = await response.json();
     renderAssignments();
+    checkAndAddAssignmentIcons();
   } catch (error) {
     console.error('Error loading assignments:', error);
     if(loader) loader.style.display = 'none';
@@ -964,6 +1039,7 @@ function addAssignment(event) {
   };
   assignments.push(newAssignment);
   renderAssignments();
+  checkAndAddAssignmentIcons();
   alert('Assignment added! To make this permanent, update the assignments.json file in your GitHub repository with the exported data.');
   document.getElementById('adminForm').reset();
 }
@@ -1012,6 +1088,78 @@ function updateClockAndShortcut() {
     }
 }
 
+// NEW FUNCTIONS FOR ASSIGNMENT DISPLAY
+function checkAndAddAssignmentIcons() {
+    const classItems = document.querySelectorAll('.class-item');
+    classItems.forEach(item => {
+        const subjectCode = item.dataset.subjectCode;
+        if (subjectCode) {
+            const hasAssignments = assignments.some(a => a.subject === subjectCode);
+            let assignmentIcon = item.querySelector('.assignment-icon');
+            if (hasAssignments && !assignmentIcon) {
+                assignmentIcon = document.createElement('i');
+                assignmentIcon.classList.add('fas', 'fa-clipboard-list', 'assignment-icon');
+                item.appendChild(assignmentIcon);
+                assignmentIcon.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevents the class item click event from firing
+                    showAssignmentsForSubject(subjectCode);
+                });
+            } else if (!hasAssignments && assignmentIcon) {
+                item.removeChild(assignmentIcon);
+            }
+        }
+    });
+}
+
+function showAssignmentsForSubject(subjectCode) {
+    const modal = document.getElementById('assignmentModal');
+    const modalContent = document.getElementById('modalAssignmentsList');
+    const modalTitle = document.getElementById('modalSubjectTitle');
+    
+    const subjectNameElement = document.querySelector(`.class-item[data-subject-code="${subjectCode}"] .subject-name`);
+    const subjectName = subjectNameElement ? subjectNameElement.textContent : subjectCode;
+    modalTitle.textContent = `${subjectName} Assignments`;
+
+    const filteredAssignments = assignments.filter(a => a.subject === subjectCode);
+
+    if (filteredAssignments.length === 0) {
+        modalContent.innerHTML = `<div class="no-assignments">No assignments for this class.</div>`;
+    } else {
+        modalContent.innerHTML = filteredAssignments.map(assignment => {
+            const hasDueDate = !!assignment.dueDate;
+            const dueDate = hasDueDate ? new Date(assignment.dueDate) : null;
+            const formattedDate = hasDueDate ? dueDate.toLocaleString() : 'No deadline';
+            const isOverdue = hasDueDate && new Date() > dueDate;
+
+            return `
+                <div class="assignment-item ${isOverdue ? 'overdue' : ''}">
+                    <div class="assignment-header">
+                        <div class="assignment-title">${assignment.title}</div>
+                    </div>
+                    <div class="assignment-due">${hasDueDate ? 'Due: ' + formattedDate : 'No specific deadline'}</div>
+                    <div class="assignment-description">${assignment.description || 'No description provided.'}</div>
+                </div>
+            `;
+        }).join('');
+    }
+    
+    modal.style.display = 'block';
+}
+
+function closeModal() {
+    const modal = document.getElementById('assignmentModal');
+    modal.style.display = 'none';
+}
+
+// Close the modal when the user clicks anywhere outside of the modal content
+window.onclick = function(event) {
+    const modal = document.getElementById('assignmentModal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     // **FIXED: Ensure the form listener is attached even if the form isn't visible**
     const adminForm = document.getElementById('adminForm');
@@ -1030,4 +1178,3 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
