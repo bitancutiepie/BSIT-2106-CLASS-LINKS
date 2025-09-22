@@ -430,7 +430,7 @@ h2 {
     cursor: pointer;
 }
 
-/* Modal Styles */
+/* Modal Styles (for assignments) */
 .modal {
     display: none; /* Hidden by default */
     position: fixed;
@@ -486,6 +486,98 @@ h2 {
     margin-bottom: 20px;
 }
 
+/* New styles for the custom code modal */
+.code-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 10001; /* Higher than other modals */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+    padding-top: 60px;
+}
+
+.code-modal-content {
+    background: rgba(255, 255, 255, 0.15); /* Semi-transparent white */
+    backdrop-filter: blur(10px) saturate(1.5); /* Glassmorphism effect */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 10% auto; /* Center vertically and horizontally */
+    padding: 30px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 450px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Subtle shadow */
+    animation: fadeIn 0.5s ease;
+    text-align: center;
+    color: white;
+}
+
+.code-modal-content h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.code-display {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ff4d4d; /* Red accent for the code */
+    text-shadow: 0 0 10px rgba(255, 77, 77, 0.8);
+    margin: 25px 0;
+    padding: 15px 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 77, 77, 0.5);
+    display: inline-block; /* To make padding and border apply correctly */
+    letter-spacing: 2px;
+}
+
+.code-modal-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.code-modal-buttons button {
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.code-modal-buttons .confirm-btn {
+    background: linear-gradient(45deg, #00b300, #00ff00);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,179,0,0.3);
+}
+.code-modal-buttons .confirm-btn:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,179,0,0.5);
+    background: linear-gradient(45deg, #00ff00, #00b300);
+}
+
+.code-modal-buttons .cancel-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255,255,255,0.1);
+}
+.code-modal-buttons .cancel-btn:hover {
+    transform: scale(1.05) translateY(-2px);
+    background: rgba(255, 255, 255, 0.3);
+}
+
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
@@ -511,6 +603,8 @@ h2 {
   .floating-action { bottom: 20px; right: 20px; width: 50px; height: 50px; }
   .admin-section { margin: 20px 0; width: 100%; box-sizing: border-box;}
   .modal-content { width: 95%; padding: 20px; }
+  .code-modal-content { width: 90%; padding: 20px; }
+  .code-display { font-size: 2rem; }
 }
 
 @media (max-width: 480px) {
@@ -518,6 +612,7 @@ h2 {
   .day-title { font-size: 1.3rem; }
   .subject-code { font-size: 1.1rem; }
   .assignment-title { font-size: 1rem; }
+  .code-display { font-size: 1.8rem; }
 }
 </style>
 </head>
@@ -545,7 +640,7 @@ h2 {
 <div class="tab-navigation">
   <button class="tab-button active" data-tab="schedule">Class Schedule</button>
   <button class="tab-button" data-tab="assignments">Assignments</button>
-  <button class="tab-button" data-tab="reviewers">Reviewers</button>
+  <button class="tab-button" data-tab="reviewers">Reviewers & Requests</button> <!-- Updated Tab Button -->
 </div>
 
 <div class="tab-content">
@@ -879,6 +974,17 @@ h2 {
         <a href="https://drive.google.com/drive/folders/1n50vswAbnj1KnoxB0Obp3_vcrouz10CW?usp=drive_link" class="meet-btn" target="_blank"><i class="fab fa-google-drive"></i>Open G-Drive Folder</a>
       </div>
     </div>
+
+    <!-- Moved and renamed Quizzes section to Requests -->
+    <div class="assignments-container">
+      <h3 class="day-title"><i class="fas fa-question-circle"></i>REQUESTS</h3>
+      <div style="text-align: center; padding: 40px 0;">
+        <p style="margin-bottom: 25px;">Click the button below to access online quizzes. You will be provided with the code <b>676767</b> before redirection.</p>
+        <button class="meet-btn" onclick="showCodeModal()"><i class="fas fa-external-link-alt"></i>Go to Online Quizzes</button>
+      </div>
+    </div>
+    <!-- End Moved Requests Section -->
+
   </div>
 
 </div>
@@ -891,6 +997,20 @@ h2 {
       </div>
   </div>
 </div>
+
+<!-- New Custom Code Modal -->
+<div id="codeModal" class="code-modal">
+  <div class="code-modal-content">
+    <h3>Quiz Access Code</h3>
+    <p>Please copy the code below before proceeding to the quiz website:</p>
+    <div class="code-display" id="quizCodeDisplay">676767</div>
+    <div class="code-modal-buttons">
+      <button class="meet-btn confirm-btn" onclick="confirmRedirectToQuizzes()">Confirm & Go to Quizzes</button>
+      <button class="meet-btn cancel-btn" onclick="closeCodeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+<!-- End New Custom Code Modal -->
 
 <div class="floating-action" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
   <img src="patrick.jpg" alt="Go Up" style="width: 90%; height: 90%; border-radius: 50%;">
@@ -1151,12 +1271,36 @@ function closeModal() {
     modal.style.display = 'none';
 }
 
-// Close the modal when the user clicks anywhere outside of the modal content
+// Close the assignment modal when the user clicks anywhere outside of the modal content
 window.onclick = function(event) {
-    const modal = document.getElementById('assignmentModal');
-    if (event.target == modal) {
-        modal.style.display = "none";
+    const assignmentModal = document.getElementById('assignmentModal');
+    const codeModal = document.getElementById('codeModal');
+    if (event.target == assignmentModal) {
+        assignmentModal.style.display = "none";
     }
+    if (event.target == codeModal) {
+        closeCodeModal(); // Close the code modal if clicked outside
+    }
+}
+
+// New functions for the custom code modal
+function showCodeModal() {
+    const codeModal = document.getElementById('codeModal');
+    const quizCodeDisplay = document.getElementById('quizCodeDisplay');
+    const quizCode = "676767"; // The code to display
+
+    quizCodeDisplay.textContent = quizCode; // Set the code in the display
+    codeModal.style.display = 'block'; // Show the modal
+}
+
+function closeCodeModal() {
+    const codeModal = document.getElementById('codeModal');
+    codeModal.style.display = 'none'; // Hide the modal
+}
+
+function confirmRedirectToQuizzes() {
+    closeCodeModal(); // Close the custom modal
+    window.open("https://onlinequestions.org/", "_blank"); // Redirect to the quiz link
 }
 
 
