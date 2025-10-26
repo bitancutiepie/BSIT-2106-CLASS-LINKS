@@ -17,7 +17,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: url('https://batstateu.edu.ph/wp-content/uploads/2020/11/Alangilan-entrance-facade.jpg') no-repeat center center/cover;
   overflow-x: hidden;
   color: white;
   font-family: 'Poppins', 'Segoe UI', sans-serif;
@@ -31,7 +31,8 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(255, 0, 0, 0.15);
+  backdrop-filter: brightness(0.6) saturate(0.7);
   z-index: -1;
 }
 
@@ -41,7 +42,7 @@ h1 {
   text-shadow: 0 0 30px #ffffff;
   margin: 30px 0 10px 0;
   text-align: center;
-  background: linear-gradient(45deg, #ffffff, #f7efef, #667eea);
+  background: linear-gradient(45deg, #ffffff, #f7efef, #ff4d4d);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -81,17 +82,17 @@ h2 {
 }
 
 #current-class-shortcut {
-    background: linear-gradient(45deg, #667eea, #764ba2);
+    background: linear-gradient(45deg, #b30000, #ff4d4d);
     border-radius: 20px;
     padding: 20px;
-    border: 2px solid #764ba2;
-    box-shadow: 0 8px 30px rgba(102,126,234,0.5);
+    border: 2px solid #ff4d4d;
+    box-shadow: 0 8px 30px rgba(179,0,0,0.5);
     animation: pulseGlow 2.5s infinite;
 }
 
 @keyframes pulseGlow {
-    0%, 100% { box-shadow: 0 8px 30px rgba(102,126,234,0.5); }
-    50% { box-shadow: 0 8px 45px rgba(118,75,162,0.7); }
+    0%, 100% { box-shadow: 0 8px 30px rgba(179,0,0,0.5); }
+    50% { box-shadow: 0 8px 45px rgba(255,77,77,0.7); }
 }
 
 #current-class-shortcut .shortcut-title {
@@ -129,8 +130,8 @@ h2 {
 }
 
 .tab-button.active {
-  background: linear-gradient(45deg, #667eea, #764ba2);
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  background: linear-gradient(45deg, #b30000, #ff4d4d);
+  box-shadow: 0 4px 15px rgba(179, 0, 0, 0.3);
 }
 
 .tab-content {
@@ -164,7 +165,7 @@ h2 {
   backdrop-filter: blur(15px);
   border-radius: 25px;
   padding: 30px;
-  box-shadow: 0 0 40px rgba(102,126,234,0.4);
+  box-shadow: 0 0 40px rgba(255,77,77,0.4);
   border: 1px solid rgba(255,255,255,0.2);
   transition: all 0.4s ease;
   position: relative;
@@ -176,7 +177,7 @@ h2 {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #667eea, #ffffff, #764ba2);
+  background: linear-gradient(90deg, #ff4d4d, #ffffff, #b30000);
   background-size: 200% 100%;
   animation: slideGradient 3s linear infinite;
 }
@@ -188,14 +189,14 @@ h2 {
 
 .day-schedule:hover, .assignments-container:hover, .calendar-container:hover {
   transform: translateY(-8px);
-  box-shadow: 0 15px 50px rgba(102,126,234,0.6);
+  box-shadow: 0 15px 50px rgba(255,77,77,0.6);
 }
 
 .day-title {
   font-size: 1.8rem;
   font-weight: 700;
   color: #ffffff;
-  text-shadow: 0 0 20px #667eea;
+  text-shadow: 0 0 20px #ff4d4d;
   text-align: center;
   margin-bottom: 25px;
   padding-bottom: 15px;
@@ -219,7 +220,7 @@ h2 {
 .class-item:hover {
   background: rgba(255,255,255,0.2);
   transform: translateX(8px);
-  box-shadow: 0 10px 30px rgba(102,126,234,0.3);
+  box-shadow: 0 10px 30px rgba(255,77,77,0.3);
 }
 
 .class-header {
@@ -246,10 +247,10 @@ h2 {
   font-size: 1.1rem;
   font-weight: 600;
   color: white;
-  background: linear-gradient(45deg, #667eea, #764ba2);
+  background: linear-gradient(45deg, #b30000, #ff4d4d);
   border-radius: 25px;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(102,126,234,0.3);
+  box-shadow: 0 4px 15px rgba(179,0,0,0.3);
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
@@ -257,8 +258,8 @@ h2 {
 
 .meet-btn:hover {
   transform: scale(1.05) translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102,126,234,0.5);
-  background: linear-gradient(45deg, #764ba2, #667eea);
+  box-shadow: 0 8px 25px rgba(179,0,0,0.5);
+  background: linear-gradient(45deg, #ff4d4d, #b30000);
 }
 
 .classroom-btn {
@@ -288,7 +289,7 @@ h2 {
   font-weight: 700;
   font-size: 1.2rem;
   color: #ffffff; 
-  text-shadow: 0 0 8px rgba(102, 126, 234, 0.7); 
+  text-shadow: 0 0 8px rgba(255, 77, 77, 0.7); 
   margin-bottom: 8px;
 }
 
@@ -307,12 +308,12 @@ h2 {
 }
 
 .room {
-  background: rgba(102,126,234,0.4);
+  background: rgba(255,77,77,0.4);
   border-radius: 12px;
   padding: 6px 14px;
   font-size: 0.8rem;
   font-weight: 600;
-  border: 1px solid rgba(102,126,234,0.6);
+  border: 1px solid rgba(255,77,77,0.6);
   color: #ffffff;
 }
 
@@ -362,7 +363,7 @@ h2 {
 .assignment-item:hover { 
   background: rgba(255,255,255,0.2); 
   transform: translateX(8px); 
-  box-shadow: 0 10px 30px rgba(102,126,234,0.3); 
+  box-shadow: 0 10px 30px rgba(255,77,77,0.3); 
 }
 
 .assignment-header { 
@@ -378,19 +379,19 @@ h2 {
   font-weight: 700; 
   font-size: 1.2rem; 
   color: #ffffff; 
-  text-shadow: 0 0 8px rgba(102, 126, 234, 0.7); 
+  text-shadow: 0 0 8px rgba(255, 77, 77, 0.7); 
   margin-bottom: 8px; 
   flex: 1; 
   min-width: 200px; 
 }
 
 .assignment-subject { 
-  background: rgba(102,126,234,0.4); 
+  background: rgba(255,77,77,0.4); 
   border-radius: 12px; 
   padding: 6px 14px; 
   font-size: 0.8rem; 
   font-weight: 600; 
-  border: 1px solid rgba(102,126,234,0.6); 
+  border: 1px solid rgba(255,77,77,0.6); 
   color: #ffffff; 
 }
 
@@ -425,7 +426,7 @@ h2 {
 
 .loader { 
   border: 5px solid #f3f3f3; 
-  border-top: 5px solid #667eea; 
+  border-top: 5px solid #b30000; 
   border-radius: 50%; 
   width: 40px; 
   height: 40px; 
@@ -533,14 +534,14 @@ h2 {
   position: fixed; 
   bottom: 30px; 
   right: 30px; 
-  background: linear-gradient(45deg,#667eea,#764ba2); 
+  background: linear-gradient(45deg,#b30000,#ff4d4d); 
   border-radius: 50%; 
   width: 60px; 
   height: 60px; 
   display: flex; 
   align-items: center; 
   justify-content: center; 
-  box-shadow: 0 8px 25px rgba(102,126,234,0.4); 
+  box-shadow: 0 8px 25px rgba(179,0,0,0.4); 
   cursor: pointer; 
   transition: all 0.3s ease; 
   z-index: 1000; 
@@ -548,7 +549,7 @@ h2 {
 
 .floating-action:hover { 
   transform: scale(1.1); 
-  box-shadow: 0 12px 35px rgba(102,126,234,0.6); 
+  box-shadow: 0 12px 35px rgba(179,0,0,0.6); 
 }
 
 .modal {
@@ -573,7 +574,7 @@ h2 {
     border-radius: 20px;
     width: 80%;
     max-width: 600px;
-    box-shadow: 0 0 40px rgba(102,126,234,0.4);
+    box-shadow: 0 0 40px rgba(255,77,77,0.4);
     animation: fadeIn 0.5s ease;
 }
 
@@ -582,7 +583,7 @@ h2 {
     font-size: 1.8rem;
     font-weight: 700;
     color: #ffffff;
-    text-shadow: 0 0 20px #667eea;
+    text-shadow: 0 0 20px #ff4d4d;
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 2px solid rgba(255, 255, 255, 0.4);
@@ -598,7 +599,7 @@ h2 {
 
 .close:hover,
 .close:focus {
-    color: #667eea;
+    color: #ff4d4d;
     text-decoration: none;
     cursor: pointer;
 }
@@ -612,7 +613,7 @@ h2 {
   border-radius: 25px;
   background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(15px);
-  box-shadow: 0 0 40px rgba(102,126,234,0.4);
+  box-shadow: 0 0 40px rgba(255,77,77,0.4);
   border: 1px solid rgba(255,255,255,0.2);
   transition: all 0.4s ease;
   position: relative;
@@ -627,7 +628,7 @@ h2 {
     color: white;
     font-size: 1.5rem;
     font-weight: 700;
-    text-shadow: 0 0 10px #667eea;
+    text-shadow: 0 0 10px #ff4d4d;
 }
 
 .calendar-header button {
@@ -640,7 +641,7 @@ h2 {
 }
 
 .calendar-header button:hover:not(:disabled) {
-    color: #667eea;
+    color: #ff4d4d;
 }
 
 .calendar-header button:disabled {
@@ -654,7 +655,7 @@ h2 {
     text-align: center;
     font-weight: 600;
     margin-bottom: 10px;
-    color: #667eea;
+    color: #ff4d4d;
     font-size: 0.9rem;
 }
 
@@ -697,13 +698,13 @@ h2 {
 }
 
 .calendar-day-box.today {
-    background: rgba(102, 126, 234, 0.3);
-    border: 2px solid #667eea;
+    background: rgba(255, 77, 77, 0.3);
+    border: 2px solid #ff4d4d;
 }
 
 .calendar-event-item {
-    background: rgba(102, 126, 234, 0.2);
-    border-left: 3px solid #667eea;
+    background: rgba(255, 77, 77, 0.2);
+    border-left: 3px solid #ff4d4d;
     padding: 5px 8px;
     border-radius: 5px;
     font-size: 0.8rem;
@@ -773,11 +774,11 @@ h2 {
 }
 
 #skip-button.enabled {
-    background-color: #667eea;
+    background-color: #b30000;
 }
 
 #skip-button.enabled:hover {
-    background-color: #764ba2;
+    background-color: #ff4d4d;
 }
 
 #volume-control {
@@ -1241,7 +1242,7 @@ h2 {
 </div>
 
 <div class="floating-action" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-  <i class="fas fa-arrow-up" style="font-size: 1.5rem;"></i>
+  <img src="patrick.jpg" alt="Go Up" style="width: 90%; height: 90%; border-radius: 50%;">
 </div>
 
 <script>
