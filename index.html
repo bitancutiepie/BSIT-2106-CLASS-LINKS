@@ -1,27 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta property="og:title" content="BSIT 2106 Class Links" />
-<meta property="og:description" content="BSIT 2106" />
-<meta property="og:url" content="https://bitancutiepie.github.io/BSIT-2106-CLASS-LINKS/" />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="https://bitancutiepie.github.io/BSIT-2106-CLASS-LINKS/patrick.jpg" />
-<link rel="icon" href="patrick.jpg" type="image/jpeg">
-<link rel="shortcut icon" href="patrick.jpg" type="image/jpeg">
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BSIT 2106 LINKS</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-
 <style>
-/* --- ALL YOUR EXISTING STYLES ARE HERE --- */
 body {
   margin: 0;
   padding: 0;
@@ -30,7 +17,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background: url('https://batstateu.edu.ph/wp-content/uploads/2020/11/Alangilan-entrance-facade.jpg') no-repeat center center/cover;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   overflow-x: hidden;
   color: white;
   font-family: 'Poppins', 'Segoe UI', sans-serif;
@@ -44,8 +31,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 0, 0, 0.15);
-  backdrop-filter: brightness(0.6) saturate(0.7);
+  background: rgba(0, 0, 0, 0.3);
   z-index: -1;
 }
 
@@ -55,12 +41,13 @@ h1 {
   text-shadow: 0 0 30px #ffffff;
   margin: 30px 0 10px 0;
   text-align: center;
-  background: linear-gradient(45deg, #ffffff, #f7efef, #ff4d4d);
+  background: linear-gradient(45deg, #ffffff, #f7efef, #667eea);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientShift 3s ease-in-out infinite;
 }
+
 @keyframes gradientShift {
   0%,100% { background-position: 0% 50% }
   50% { background-position: 100% 50% }
@@ -94,17 +81,19 @@ h2 {
 }
 
 #current-class-shortcut {
-    background: linear-gradient(45deg, #b30000, #ff4d4d);
+    background: linear-gradient(45deg, #667eea, #764ba2);
     border-radius: 20px;
     padding: 20px;
-    border: 2px solid #ff4d4d;
-    box-shadow: 0 8px 30px rgba(179,0,0,0.5);
+    border: 2px solid #764ba2;
+    box-shadow: 0 8px 30px rgba(102,126,234,0.5);
     animation: pulseGlow 2.5s infinite;
 }
+
 @keyframes pulseGlow {
-    0%, 100% { box-shadow: 0 8px 30px rgba(179,0,0,0.5); }
-    50% { box-shadow: 0 8px 45px rgba(255,77,77,0.7); }
+    0%, 100% { box-shadow: 0 8px 30px rgba(102,126,234,0.5); }
+    50% { box-shadow: 0 8px 45px rgba(118,75,162,0.7); }
 }
+
 #current-class-shortcut .shortcut-title {
     font-size: 1.1rem;
     font-weight: 700;
@@ -140,8 +129,8 @@ h2 {
 }
 
 .tab-button.active {
-  background: linear-gradient(45deg, #b30000, #ff4d4d);
-  box-shadow: 0 4px 15px rgba(179, 0, 0, 0.3);
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
 .tab-content {
@@ -175,18 +164,19 @@ h2 {
   backdrop-filter: blur(15px);
   border-radius: 25px;
   padding: 30px;
-  box-shadow: 0 0 40px rgba(255,77,77,0.4);
+  box-shadow: 0 0 40px rgba(102,126,234,0.4);
   border: 1px solid rgba(255,255,255,0.2);
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
 }
+
 .day-schedule::before, .assignments-container::before, .calendar-container::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #ff4d4d, #ffffff, #b30000);
+  background: linear-gradient(90deg, #667eea, #ffffff, #764ba2);
   background-size: 200% 100%;
   animation: slideGradient 3s linear infinite;
 }
@@ -198,13 +188,14 @@ h2 {
 
 .day-schedule:hover, .assignments-container:hover, .calendar-container:hover {
   transform: translateY(-8px);
-  box-shadow: 0 15px 50px rgba(255,77,77,0.6);
+  box-shadow: 0 15px 50px rgba(102,126,234,0.6);
 }
+
 .day-title {
   font-size: 1.8rem;
   font-weight: 700;
   color: #ffffff;
-  text-shadow: 0 0 20px #ff4d4d;
+  text-shadow: 0 0 20px #667eea;
   text-align: center;
   margin-bottom: 25px;
   padding-bottom: 15px;
@@ -228,8 +219,9 @@ h2 {
 .class-item:hover {
   background: rgba(255,255,255,0.2);
   transform: translateX(8px);
-  box-shadow: 0 10px 30px rgba(255,77,77,0.3);
+  box-shadow: 0 10px 30px rgba(102,126,234,0.3);
 }
+
 .class-header {
   display: flex;
   justify-content: space-between;
@@ -238,6 +230,7 @@ h2 {
   flex-wrap: wrap;
   gap: 10px;
 }
+
 .class-time {
   font-weight: 600;
   font-size: 1.1em;
@@ -253,19 +246,21 @@ h2 {
   font-size: 1.1rem;
   font-weight: 600;
   color: white;
-  background: linear-gradient(45deg, #b30000, #ff4d4d);
+  background: linear-gradient(45deg, #667eea, #764ba2);
   border-radius: 25px;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(179,0,0,0.3);
+  box-shadow: 0 4px 15px rgba(102,126,234,0.3);
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
 }
+
 .meet-btn:hover {
   transform: scale(1.05) translateY(-2px);
-  box-shadow: 0 8px 25px rgba(179,0,0,0.5);
-  background: linear-gradient(45deg, #ff4d4d, #b30000);
+  box-shadow: 0 8px 25px rgba(102,126,234,0.5);
+  background: linear-gradient(45deg, #764ba2, #667eea);
 }
+
 .classroom-btn {
   display: inline-flex;
   align-items: center;
@@ -282,16 +277,18 @@ h2 {
   border: none;
   cursor: pointer;
 }
+
 .classroom-btn:hover {
   transform: scale(1.05) translateY(-2px);
   box-shadow: 0 8px 25px rgba(0,102,204,0.5);
   background: linear-gradient(45deg, #0099ff, #0066cc);
 }
+
 .subject-code {
   font-weight: 700;
   font-size: 1.2rem;
   color: #ffffff; 
-  text-shadow: 0 0 8px rgba(255, 77, 77, 0.7); 
+  text-shadow: 0 0 8px rgba(102, 126, 234, 0.7); 
   margin-bottom: 8px;
 }
 
@@ -308,27 +305,30 @@ h2 {
   gap: 12px;
   align-items: center;
 }
+
 .room {
-  background: rgba(255,77,77,0.4);
+  background: rgba(102,126,234,0.4);
   border-radius: 12px;
   padding: 6px 14px;
   font-size: 0.8rem;
   font-weight: 600;
-  border: 1px solid rgba(255,77,77,0.6);
+  border: 1px solid rgba(102,126,234,0.6);
   color: #ffffff;
 }
+
 .instructor {
   font-style: italic;
   opacity: 0.9;
   font-size: 0.8rem;
   color: #ffffff;
 }
+
 .assignment-icon {
   position: absolute;
   top: 15px;
   right: 15px;
   font-size: 1.5rem;
-  color: #00ff00; /* Green color to signify an assignment */
+  color: #00ff00;
   cursor: pointer;
   animation: pulse 1.5s infinite;
 }
@@ -343,96 +343,216 @@ h2 {
         opacity: 0.8;
     }
 }
-.assignment-list { display: grid; gap: 20px; }
-.assignment-item { background: rgba(255,255,255,0.12); border-radius: 18px; padding: 20px; border: 1px solid rgba(255,255,255,0.3); transition: all 0.4s ease; width: 100%; box-sizing: border-box; }
-.assignment-item:hover { background: rgba(255,255,255,0.2); transform: translateX(8px); box-shadow: 0 10px 30px rgba(255,77,77,0.3); }
-.assignment-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
-.assignment-title { font-weight: 700; font-size: 1.2rem; color: #ffffff; text-shadow: 0 0 8px rgba(255, 77, 77, 0.7); margin-bottom: 8px; flex: 1; min-width: 200px; }
-.assignment-subject { background: rgba(255,77,77,0.4); border-radius: 12px; padding: 6px 14px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(255,77,77,0.6); color: #ffffff; }
-.assignment-due { font-weight: 600; font-size: 1em; color: white; text-shadow: 0 0 6px rgba(0, 0, 0, 0.8); }
-.assignment-description { font-size: 0.95rem; margin-bottom: 15px; color: #ffffff; overflow-wrap: break-word; word-break: break-word; hyphens: auto; max-width: 100%; }
-.assignment-item.overdue .assignment-due { color: #ff4d4d; animation: pulse 2s infinite; }
-@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
-.no-assignments { text-align: center; padding: 30px; font-style: italic; opacity: 0.8; }
-.loader { border: 5px solid #f3f3f3; border-top: 5px solid #b30000; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 20px auto; }
-@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-.admin-section { display: none; background: rgba(0, 0, 0, 0.3); border-radius: 18px; padding: 20px; margin-top: 20px; width: 100%; box-sizing: border-box; }
-.admin-toggle { background: linear-gradient(45deg, #0066cc, #0099ff); color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: 600; margin-bottom: 15px; }
-.admin-form { display: none; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
-.admin-form.active { display: grid; }
-.form-group { display: flex; flex-direction: column; }
-.form-group.full-width { grid-column: 1 / -1; }
-.admin-form label { margin-bottom: 8px; font-weight: 600; }
-.admin-form input, .admin-form select, .admin-form textarea { padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: white; font-family: inherit; }
-.admin-form textarea { min-height: 100px; resize: vertical; }
-.add-assignment-btn { grid-column: 1 / -1; padding: 12px; border-radius: 12px; border: none; background: linear-gradient(45deg, #00b300, #00ff00); color: white; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
-.add-assignment-btn:hover { background: linear-gradient(45deg, #00ff00, #00b300); }
-.export-btn { background: linear-gradient(45deg, #ff9900, #ffcc00); color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: 600; margin-top: 10px; }
-.export-btn:hover { background: linear-gradient(45deg, #ffcc00, #ff9900); }
-.floating-action { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(45deg,#b30000,#ff4d4d); border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(179,0,0,0.4); cursor: pointer; transition: all 0.3s ease; z-index: 1000; }
-.floating-action:hover { transform: scale(1.1); box-shadow: 0 12px 35px rgba(179,0,0,0.6); }
 
-/* ADVERTISEMENT STYLES */
-#ad-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-#ad-video {
-    width: 80%;
-    max-width: 900px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-}
-#skip-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 5px;
-    cursor: pointer;
-}
-#skip-button:not(.enabled):hover {
-    cursor: not-allowed;
-}
-#skip-button.enabled {
-    background-color: #E50914; /* Red color when skippable */
-}
-#skip-button.enabled:hover {
-    background-color: #B20710;
-}
-#volume-control {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background-color: rgba(0,0,0,0.5);
-    border: 1px solid rgba(255,255,255,0.3);
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    cursor: pointer;
+.assignment-list { 
+  display: grid; 
+  gap: 20px; 
 }
 
-/* Modal Styles (for assignments) */
+.assignment-item { 
+  background: rgba(255,255,255,0.12); 
+  border-radius: 18px; 
+  padding: 20px; 
+  border: 1px solid rgba(255,255,255,0.3); 
+  transition: all 0.4s ease; 
+  width: 100%; 
+  box-sizing: border-box; 
+}
+
+.assignment-item:hover { 
+  background: rgba(255,255,255,0.2); 
+  transform: translateX(8px); 
+  box-shadow: 0 10px 30px rgba(102,126,234,0.3); 
+}
+
+.assignment-header { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-start; 
+  margin-bottom: 15px; 
+  flex-wrap: wrap; 
+  gap: 10px; 
+}
+
+.assignment-title { 
+  font-weight: 700; 
+  font-size: 1.2rem; 
+  color: #ffffff; 
+  text-shadow: 0 0 8px rgba(102, 126, 234, 0.7); 
+  margin-bottom: 8px; 
+  flex: 1; 
+  min-width: 200px; 
+}
+
+.assignment-subject { 
+  background: rgba(102,126,234,0.4); 
+  border-radius: 12px; 
+  padding: 6px 14px; 
+  font-size: 0.8rem; 
+  font-weight: 600; 
+  border: 1px solid rgba(102,126,234,0.6); 
+  color: #ffffff; 
+}
+
+.assignment-due { 
+  font-weight: 600; 
+  font-size: 1em; 
+  color: white; 
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.8); 
+}
+
+.assignment-description { 
+  font-size: 0.95rem; 
+  margin-bottom: 15px; 
+  color: #ffffff; 
+  overflow-wrap: break-word; 
+  word-break: break-word; 
+  hyphens: auto; 
+  max-width: 100%; 
+}
+
+.assignment-item.overdue .assignment-due { 
+  color: #ff4d4d; 
+  animation: pulse 2s infinite; 
+}
+
+.no-assignments { 
+  text-align: center; 
+  padding: 30px; 
+  font-style: italic; 
+  opacity: 0.8; 
+}
+
+.loader { 
+  border: 5px solid #f3f3f3; 
+  border-top: 5px solid #667eea; 
+  border-radius: 50%; 
+  width: 40px; 
+  height: 40px; 
+  animation: spin 1s linear infinite; 
+  margin: 20px auto; 
+}
+
+@keyframes spin { 
+  0% { transform: rotate(0deg); } 
+  100% { transform: rotate(360deg); } 
+}
+
+.admin-section { 
+  display: none; 
+  background: rgba(0, 0, 0, 0.3); 
+  border-radius: 18px; 
+  padding: 20px; 
+  margin-top: 20px; 
+  width: 100%; 
+  box-sizing: border-box; 
+}
+
+.admin-toggle { 
+  background: linear-gradient(45deg, #0066cc, #0099ff); 
+  color: white; 
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 20px; 
+  cursor: pointer; 
+  font-weight: 600; 
+  margin-bottom: 15px; 
+}
+
+.admin-form { 
+  display: none; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 15px; 
+  margin-bottom: 15px; 
+}
+
+.admin-form.active { 
+  display: grid; 
+}
+
+.form-group { 
+  display: flex; 
+  flex-direction: column; 
+}
+
+.form-group.full-width { 
+  grid-column: 1 / -1; 
+}
+
+.admin-form label { 
+  margin-bottom: 8px; 
+  font-weight: 600; 
+}
+
+.admin-form input, .admin-form select, .admin-form textarea { 
+  padding: 12px; 
+  border-radius: 12px; 
+  border: 1px solid rgba(255,255,255,0.3); 
+  background: rgba(255,255,255,0.1); 
+  color: white; 
+  font-family: inherit; 
+}
+
+.admin-form textarea { 
+  min-height: 100px; 
+  resize: vertical; 
+}
+
+.add-assignment-btn, .add-event-btn { 
+  grid-column: 1 / -1; 
+  padding: 12px; 
+  border-radius: 12px; 
+  border: none; 
+  background: linear-gradient(45deg, #00b300, #00ff00); 
+  color: white; 
+  font-weight: 600; 
+  cursor: pointer; 
+  transition: all 0.3s ease; 
+}
+
+.add-assignment-btn:hover, .add-event-btn:hover { 
+  background: linear-gradient(45deg, #00ff00, #00b300); 
+}
+
+.export-btn { 
+  background: linear-gradient(45deg, #ff9900, #ffcc00); 
+  color: white; 
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 20px; 
+  cursor: pointer; 
+  font-weight: 600; 
+  margin-top: 10px; 
+}
+
+.export-btn:hover { 
+  background: linear-gradient(45deg, #ffcc00, #ff9900); 
+}
+
+.floating-action { 
+  position: fixed; 
+  bottom: 30px; 
+  right: 30px; 
+  background: linear-gradient(45deg,#667eea,#764ba2); 
+  border-radius: 50%; 
+  width: 60px; 
+  height: 60px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  box-shadow: 0 8px 25px rgba(102,126,234,0.4); 
+  cursor: pointer; 
+  transition: all 0.3s ease; 
+  z-index: 1000; 
+}
+
+.floating-action:hover { 
+  transform: scale(1.1); 
+  box-shadow: 0 12px 35px rgba(102,126,234,0.6); 
+}
+
 .modal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     z-index: 10000;
     left: 0;
@@ -453,15 +573,16 @@ h2 {
     border-radius: 20px;
     width: 80%;
     max-width: 600px;
-    box-shadow: 0 0 40px rgba(255,77,77,0.4);
+    box-shadow: 0 0 40px rgba(102,126,234,0.4);
     animation: fadeIn 0.5s ease;
 }
+
 .modal-content h3 {
     text-align: center;
     font-size: 1.8rem;
     font-weight: 700;
     color: #ffffff;
-    text-shadow: 0 0 20px #ff4d4d;
+    text-shadow: 0 0 20px #667eea;
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 2px solid rgba(255, 255, 255, 0.4);
@@ -477,7 +598,7 @@ h2 {
 
 .close:hover,
 .close:focus {
-    color: #ff4d4d;
+    color: #667eea;
     text-decoration: none;
     cursor: pointer;
 }
@@ -486,122 +607,16 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* New styles for the custom code modal */
-.code-modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 10001; /* Higher than other modals */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.8);
-    backdrop-filter: blur(5px);
-    padding-top: 60px;
-}
-
-.code-modal-content {
-    background: rgba(255, 255, 255, 0.15); /* Semi-transparent white */
-    backdrop-filter: blur(10px) saturate(1.5); /* Glassmorphism effect */
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    margin: 10% auto; /* Center vertically and horizontally */
-    padding: 30px;
-    border-radius: 20px;
-    width: 80%;
-    max-width: 450px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Subtle shadow */
-    animation: fadeIn 0.5s ease;
-    text-align: center;
-    color: white;
-}
-
-.code-modal-content h3 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #ffffff;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
-}
-
-.code-display {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #ff4d4d; /* Red accent for the code */
-    text-shadow: 0 0 10px rgba(255, 77, 77, 0.8);
-    margin: 25px 0;
-    padding: 15px 20px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
-    border: 1px solid rgba(255, 77, 77, 0.5);
-    display: inline-block; /* To make padding and border apply correctly */
-    letter-spacing: 2px;
-}
-
-.code-modal-buttons {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.code-modal-buttons button {
-    padding: 12px 25px;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-}
-
-.code-modal-buttons .confirm-btn {
-    background: linear-gradient(45deg, #00b300, #00ff00);
-    color: white;
-    box-shadow: 0 4px 15px rgba(0,179,0,0.3);
-}
-.code-modal-buttons .confirm-btn:hover {
-    transform: scale(1.05) translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0,179,0,0.5);
-    background: linear-gradient(45deg, #00ff00, #00b300);
-}
-
-.code-modal-buttons .cancel-btn {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    box-shadow: 0 4px 15px rgba(255,255,255,0.1);
-}
-.code-modal-buttons .cancel-btn:hover {
-    transform: scale(1.05) translateY(-2px);
-    background: rgba(255, 255, 255, 0.3);
-}
-
-/* Calendar Specific Styles */
 .calendar-container {
   padding: 30px;
   border-radius: 25px;
   background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(15px);
-  box-shadow: 0 0 40px rgba(255,77,77,0.4);
+  box-shadow: 0 0 40px rgba(102,126,234,0.4);
   border: 1px solid rgba(255,255,255,0.2);
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
-}
-.calendar-container::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #ff4d4d, #ffffff, #b30000);
-  background-size: 200% 100%;
-  animation: slideGradient 3s linear infinite;
-}
-.calendar-container:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 50px rgba(255,77,77,0.6);
 }
 
 .calendar-header {
@@ -612,7 +627,7 @@ h2 {
     color: white;
     font-size: 1.5rem;
     font-weight: 700;
-    text-shadow: 0 0 10px #ff4d4d;
+    text-shadow: 0 0 10px #667eea;
 }
 
 .calendar-header button {
@@ -624,8 +639,13 @@ h2 {
     transition: color 0.3s;
 }
 
-.calendar-header button:hover {
-    color: #ff4d4d;
+.calendar-header button:hover:not(:disabled) {
+    color: #667eea;
+}
+
+.calendar-header button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
 }
 
 .calendar-weekdays {
@@ -634,31 +654,29 @@ h2 {
     text-align: center;
     font-weight: 600;
     margin-bottom: 10px;
-    color: #ff4d4d;
+    color: #667eea;
     font-size: 0.9rem;
 }
 
 .calendar-days-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    /* Removed gap here, using margin on day-box instead */
 }
 
 .calendar-day-box {
     background: rgba(255, 255, 255, 0.08);
     border-radius: 10px;
     padding: 10px;
-    height: auto; /* Allow height to adjust to content */
-    flex-grow: 1; /* Allow boxes to grow */
+    height: auto;
+    flex-grow: 1;
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
-    /* gap: 5px; */ /* Removed gap here, events will have their own margin */
     transition: background 0.3s ease;
-    margin: 5px; /* Added margin for spacing between boxes */
-    overflow: hidden; /* Ensure content doesn't spill out of rounded corners */
-    position: relative; /* For potential absolute positioning of elements inside */
+    margin: 5px;
+    overflow: hidden;
+    position: relative;
 }
 
 .calendar-day-box:hover {
@@ -674,91 +692,114 @@ h2 {
     padding-right: 5px;
 }
 
-.calendar-day-box.current-month {
-    /* Styles for days in the current month */
+.calendar-day-box.other-month {
+    opacity: 0.5;
 }
 
-.calendar-day-box.other-month {
-    opacity: 0.5; /* Dim days from other months */
+.calendar-day-box.today {
+    background: rgba(102, 126, 234, 0.3);
+    border: 2px solid #667eea;
 }
 
 .calendar-event-item {
-    background: rgba(255, 77, 77, 0.2);
-    border-left: 3px solid #ff4d4d;
+    background: rgba(102, 126, 234, 0.2);
+    border-left: 3px solid #667eea;
     padding: 5px 8px;
     border-radius: 5px;
     font-size: 0.8rem;
     line-height: 1.3;
     color: #ffffff;
     word-wrap: break-word;
-    margin-top: 5px; /* Space between events */
-    max-height: 70px; /* Limit height for individual event items */
-    overflow-y: auto; /* Add scroll if content exceeds max-height */
+    margin-top: 5px;
+    max-height: 70px;
+    overflow-y: auto;
 }
-.calendar-event-item:first-child { /* Changed to first-child for more general application */
-    margin-top: 0; /* No top margin for the first event */
+
+.calendar-event-item:first-child {
+    margin-top: 0;
 }
+
 .calendar-event-item strong {
     color: #fff;
 }
 
-/* Responsive adjustments for calendar */
 @media (max-width: 768px) {
     .calendar-days-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* More flexible for smaller screens */
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
     .calendar-day-box {
         padding: 8px;
-        margin: 4px; /* Adjusted margin for smaller screens */
-    }
-    .calendar-date {
-        font-size: 1rem;
-    }
-    .calendar-event-item {
-        font-size: 0.75rem;
-        padding: 4px 6px;
-        max-height: 60px; /* Adjusted max-height for smaller screens */
-    }
-    .calendar-weekdays {
-        font-size: 0.8rem;
-    }
-    .calendar-header {
-        font-size: 1.2rem;
-    }
-    .calendar-header button {
-        font-size: 1.5rem;
+        margin: 4px;
     }
 }
 
-@media (max-width: 480px) {
-    .calendar-days-grid {
-        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-    }
-    .calendar-day-box {
-        padding: 5px;
-        margin: 3px; /* Adjusted margin for smallest screens */
-    }
-    .calendar-date {
-        font-size: 0.9rem;
-    }
-    .calendar-event-item {
-        font-size: 0.7rem;
-        padding: 3px 5px;
-        max-height: 50px; /* Adjusted max-height for smallest screens */
-    }
-    .calendar-weekdays {
-        font-size: 0.7rem;
-    }
-    .calendar-header {
-        font-size: 1rem;
-    }
-    .calendar-header button {
-        font-size: 1.2rem;
-    }
+/* ADVERTISEMENT STYLES */
+#ad-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#ad-video {
+    width: 80%;
+    max-width: 900px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+#skip-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#skip-button:not(.enabled):hover {
+    cursor: not-allowed;
+}
+
+#skip-button.enabled {
+    background-color: #667eea;
+}
+
+#skip-button.enabled:hover {
+    background-color: #764ba2;
+}
+
+#volume-control {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
 }
 </style>
 </head>
 <body>
+
 <div id="ad-overlay">
     <video id="ad-video" autoplay playsinline muted>
         <source src="pat_ads.mp4" type="video/mp4">
@@ -769,7 +810,6 @@ h2 {
         <i class="fas fa-volume-mute"></i>
     </div>
 </div>
-
 
 <h1>BSIT 2106 CLASS SCHEDULE</h1>
 <h2>Created by: Bitancor, Joshua Vincent</h2>
@@ -782,7 +822,7 @@ h2 {
 <div class="tab-navigation">
   <button class="tab-button active" data-tab="schedule">Class Schedule</button>
   <button class="tab-button" data-tab="assignments">Assignments</button>
-  <button class="tab-button" data-tab="calendar">Events Calendar</button> <!-- New Tab Button -->
+  <button class="tab-button" data-tab="calendar">Events Calendar</button>
   <button class="tab-button" data-tab="reviewers">Reviewers & Requests</button>
 </div>
 
@@ -1066,7 +1106,7 @@ h2 {
       <h3 class="day-title"><i class="fas fa-user-shield"></i>ADMIN PANEL</h3>
       <p>As class president, you can manage assignments here.</p>
       
-      <button class="admin-toggle" onclick="toggleAdminForm()">Show/Hide Form</button>
+      <button class="admin-toggle" onclick="toggleAdminForm()">Show/Hide Assignment Form</button>
       
       <form class="admin-form" id="adminForm">
         <div class="form-group">
@@ -1109,14 +1149,13 @@ h2 {
     </div>
   </div>
 
-  <!-- New Events Calendar Tab Pane -->
   <div class="tab-pane" id="calendar">
     <div class="calendar-container">
-      <h3 class="day-title"><i class="fas fa-calendar-alt"></i>EVENTS CALENDAR - OCTOBER 2025</h3>
+      <h3 class="day-title"><i class="fas fa-calendar-alt"></i>EVENTS CALENDAR</h3>
       <div class="calendar-header">
-        <button id="prevMonth" disabled><i class="fas fa-chevron-left"></i></button>
-        <span id="currentMonthYear">October 2025</span>
-        <button id="nextMonth" disabled><i class="fas fa-chevron-right"></i></button>
+        <button id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+        <span id="currentMonthYear"></span>
+        <button id="nextMonth"><i class="fas fa-chevron-right"></i></button>
       </div>
       <div class="calendar-weekdays">
         <div>Sun</div>
@@ -1127,112 +1166,52 @@ h2 {
         <div>Fri</div>
         <div>Sat</div>
       </div>
-      <div class="calendar-days-grid">
-        <!-- Days from previous month (September 2025 starts on a Monday, so 28th is Sunday) -->
-        <div class="calendar-day-box other-month"><span class="calendar-date">28</span></div>
-        <div class="calendar-day-box other-month"><span class="calendar-date">29</span></div>
-        <div class="calendar-day-box other-month"><span class="calendar-date">30</span></div>
+      <div class="calendar-days-grid" id="calendarGrid">
+        <!-- Calendar will be generated by JavaScript -->
+      </div>
+    </div>
+    
+    <div class="assignments-container admin-section" id="calendarAdminSection">
+      <h3 class="day-title"><i class="fas fa-user-shield"></i>CALENDAR ADMIN PANEL</h3>
+      <p>Add events to specific dates in the calendar.</p>
+      
+      <button class="admin-toggle" onclick="toggleCalendarForm()">Show/Hide Event Form</button>
+      
+      <form class="admin-form" id="calendarAdminForm">
+        <div class="form-group">
+          <label for="eventDate">Event Date</label>
+          <input type="date" id="eventDate" required>
+        </div>
         
-        <!-- October 2025 starts on a Wednesday -->
-        <div class="calendar-day-box current-month"><span class="calendar-date">1</span></div>
-        <div class="calendar-day-box current-month"><span class="calendar-date">2</span></div>
-        <div class="calendar-day-box current-month"><span class="calendar-date">3</span></div>
-        <div class="calendar-day-box current-month"><span class="calendar-date">4</span></div>
-
-        <!-- October 5 -->
-        <div class="calendar-day-box current-month">
-          <span class="calendar-date">5</span>
+        <div class="form-group">
+          <label for="eventSubject">Subject (Optional)</label>
+          <select id="eventSubject">
+            <option value="">General Event</option>
+            <option value="IT 211">IT 211</option>
+            <option value="LITR 102">LITR 102</option>
+            <option value="CpE 405">CpE 405</option>
+            <option value="PATHFit 3">PATHFit 3</option>
+            <option value="CS 211">CS 211</option>
+            <option value="IT 212">IT 212</option>
+            <option value="CS 121">CS 121</option>
+            <option value="PHY 101">PHY 101</option>
+          </select>
         </div>
-        <!-- October 6 -->
-        <div class="calendar-day-box current-month">
-          <span class="calendar-date">6</span>
-          <div class="calendar-event-item"><strong>IT 211:</strong> DBMS Discussion for Midterm Lab Exam</div>
-          <div class="calendar-event-item"><strong>LITR 102:</strong> ASEAN Presentation (Teacher’s Day Celeb)</div>
-          <div class="calendar-event-item"><strong>CpE 405:</strong> DMATH Quiz</div>
-          <div class="calendar-event-item"><strong>PATHFit 3:</strong> Bring Racket and Panyo</div>
+        
+        <div class="form-group full-width">
+          <label for="eventDescription">Event Description</label>
+          <textarea id="eventDescription" required></textarea>
         </div>
-        <!-- October 7 -->
-        <div class="calendar-day-box current-month">
-          <span class="calendar-date">7</span>
-          <div class="calendar-event-item"><strong>CS 211:</strong> OOP Finishing Discussion</div>
-          <div class="calendar-event-item"><strong>IT 212:</strong> COMPNET Module 5-7 Discussion</div>
-          <div class="calendar-event-item"><strong>CS 121:</strong> ACP Lesson Continuation</div>
-          <div class="calendar-event-item"><strong>PHY 101:</strong> Physics Review Midterm</div>
-        </div>
-        <!-- October 8 -->
-        <div class="calendar-day-box current-month">
-          <span class="calendar-date">8</span>
-          <div class="calendar-event-item"><strong>IT 211:</strong> DBMS TBA</div>
-          <div class="calendar-event-item"><strong>LITR 102:</strong> ASEAN Midterm Review/ Presentation</div>
-          <div class="calendar-event-item"><strong>PHY 101:</strong> Physics Midterm Review</div>
-          <div class="calendar-event-item"><strong>IT 212:</strong> COMPNET discussion continuation</div>
-        </div>
-        <!-- October 9 -->
-        <div class="calendar-day-box current-month">
-          <span class="calendar-date">9</span>
-          <div class="calendar-event-item"><strong>CS 121:</strong> ACP Quiz</div>
-          <div class="calendar-event-item"><strong>CS 211:</strong> OOP QUIZ</div>
-          <div class="calendar-event-item"><strong>IT 211:</strong> DBMS QUIZ and ACTIVITY</div>
-        </div>
-        <!-- October 10 -->
-        <div class="calendar-day-box current-month">
-          <span class="calendar-date">10</span>
-        </div>
-        <!-- October 11 -->
-        <div class="calendar-day-box current-month">
-          <span class="calendar-date">11</span>
-        </div>
-        <!-- October 12 -->
-        <div class="calendar-day-box current-month">
-          <span class="calendar-date">12</span>
-        </div>
-        <!-- October 13 -->
-        <div class="calendar-day-box current-month">
-          <span class="calendar-date">13</span>
-          <div class="calendar-event-item"><strong>Midterm Week</strong></div>
-        </div>
-        <!-- October 14 -->
-        <div class="calendar-day-box current-month">
-          <span class="calendar-date">14</span>
-          <div class="calendar-event-item"><strong>Midterm Week</strong></div>
-        </div>
-        <!-- October 15 -->
-        <div class="calendar-day-box current-month">
-          <span class="calendar-date">15</span>
-          <div class="calendar-event-item"><strong>Midterm Week</strong></div>
-        </div>
-        <!-- October 16 -->
-        <div class="calendar-day-box current-month">
-          <span class="calendar-date">16</span>
-          <div class="calendar-event-item"><strong>Midterm Week</strong></div>
-        </div>
-        <!-- October 17 -->
-        <div class="calendar-day-box current-month">
-          <span class="calendar-date">17</span>
-          <div class="calendar-event-item"><strong>Midterm Week</strong></div>
-        </div>
-        <!-- October 18-31 (empty or placeholder) -->
-        <div class="calendar-day-box current-month"><span class="calendar-date">18</span></div>
-        <div class="calendar-day-box current-month"><span class="calendar-date">19</span></div>
-        <div class="calendar-day-box current-month"><span class="calendar-date">20</span></div>
-        <div class="calendar-day-box current-month"><span class="calendar-date">21</span></div>
-        <div class="calendar-day-box current-month"><span class="calendar-date">22</span></div>
-        <div class="calendar-day-box current-month"><span class="calendar-date">23</span></div>
-        <div class="calendar-day-box current-month"><span class="calendar-date">24</span></div>
-        <div class="calendar-day-box current-month"><span class="calendar-date">25</span></div>
-        <div class="calendar-day-box current-month"><span class="calendar-date">26</span></div>
-        <div class="calendar-day-box current-month"><span class="calendar-date">27</span></div>
-        <div class="calendar-day-box current-month"><span class="calendar-date">28</span></div>
-        <div class="calendar-day-box current-month"><span class="calendar-date">29</span></div>
-        <div class="calendar-day-box current-month"><span class="calendar-date">30</span></div>
-        <div class="calendar-day-box current-month"><span class="calendar-date">31</span></div>
-        <!-- Days from next month (November 2025 starts on a Saturday) -->
-        <div class="calendar-day-box other-month"><span class="calendar-date">1</span></div>
-        <div class="calendar-day-box other-month"><span class="calendar-date">2</span></div>
+        
+        <button type="submit" class="add-event-btn">Add Event</button>
+      </form>
+      
+      <div>
+        <h4>Event Management</h4>
+        <button class="export-btn" onclick="exportEvents()">Export Events</button>
       </div>
     </div>
   </div>
-  <!-- End New Events Calendar Tab Pane -->
 
   <div class="tab-pane" id="reviewers">
     <div class="assignments-container">
@@ -1246,87 +1225,26 @@ h2 {
     <div class="assignments-container">
       <h3 class="day-title"><i class="fas fa-question-circle"></i>REQUESTS</h3>
       <div style="text-align: center; padding: 40px 0;">
-        <p style="margin-bottom: 25px;">Click the button below to access requests. You will be provided with the code <b>676767</b> before redirection.</p>
-        <button class="meet-btn" onclick="showCodeModal()"><i class="fas fa-external-link-alt"></i>Go to Requests</button>
+        <p style="margin-bottom: 25px;">Click the button below to access requests.</p>
+        <a href="https://onlinequestions.org/" class="meet-btn" target="_blank"><i class="fas fa-external-link-alt"></i>Go to Requests</a>
       </div>
     </div>
   </div>
-
 </div>
 
 <div id="assignmentModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
     <h3 id="modalSubjectTitle">Assignments</h3>
-    <div id="modalAssignmentsList" class="modal-assignments">
-      </div>
-  </div>
-</div>
-
-<div id="codeModal" class="code-modal">
-  <div class="code-modal-content">
-    <h3>Request Code</h3>
-    <p>Please copy the code below before proceeding to the request website:</p>
-    <div class="code-display" id="quizCodeDisplay">676767</div>
-    <div class="code-modal-buttons">
-      <button class="meet-btn confirm-btn" onclick="confirmRedirectToQuizzes()">Confirm & Go to Requests</button>
-      <button class="meet-btn cancel-btn" onclick="closeCodeModal()">Cancel</button>
-    </div>
+    <div id="modalAssignmentsList" class="modal-assignments"></div>
   </div>
 </div>
 
 <div class="floating-action" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-  <img src="patrick.jpg" alt="Go Up" style="width: 90%; height: 90%; border-radius: 50%;">
+  <i class="fas fa-arrow-up" style="font-size: 1.5rem;"></i>
 </div>
 
 <script>
-// --- ALL YOUR EXISTING JAVASCRIPT IS HERE ---
-
-// --- ADVERTISEMENT JAVASCRIPT ---
-function startAd() {
-    const adOverlay = document.getElementById('ad-overlay');
-    const adVideo = document.getElementById('ad-video');
-    const skipButton = document.getElementById('skip-button');
-    const volumeControl = document.getElementById('volume-control'); // Reference to the volume button
-    let countdown = 5;
-
-    adVideo.muted = true; // Start muted by default
-    adOverlay.style.display = 'flex';
-
-    let playPromise = adVideo.play();
-    if (playPromise !== undefined) {
-        playPromise.catch(error => {
-            console.log("Autoplay was blocked.");
-        });
-    }
-
-    // **FIXED: UNMUTE BUTTON LOGIC**
-    volumeControl.addEventListener('click', () => {
-        adVideo.muted = !adVideo.muted;
-        volumeControl.innerHTML = adVideo.muted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-high"></i>';
-    });
-
-    const countdownInterval = setInterval(() => {
-        countdown--;
-        if (countdown > 0) {
-            skipButton.textContent = `Skip in ${countdown}`;
-        } else {
-            clearInterval(countdownInterval);
-            skipButton.textContent = 'Skip Ad';
-            skipButton.classList.add('enabled');
-            skipButton.addEventListener('click', closeAd);
-        }
-    }, 1000);
-
-    adVideo.addEventListener('ended', closeAd);
-
-    function closeAd() {
-        adOverlay.style.display = 'none';
-        adVideo.pause();
-    }
-}
-
-
 const scheduleData = [
     { day: 1, startTime: '08:00', endTime: '10:00', code: 'IT 211', name: 'Database Management System', meetLink: 'https://meet.google.com/nmd-kafg-mjy?authuser=0&hs=179' },
     { day: 1, startTime: '10:00', endTime: '11:30', code: 'LITR 102', name: 'ASEAN Literature', meetLink: 'https://meet.google.com/dwz-cjbm-tke?authuser=0&hs=179' },
@@ -1345,6 +1263,7 @@ const scheduleData = [
     { day: 4, startTime: '13:00', endTime: '16:00', code: 'IT 211', name: 'Database Management System', meetLink: 'https://meet.google.com/nmd-kafg-mjy?authuser=0&hs=179' },
 ];
 
+// Tab switching
 document.querySelectorAll('.tab-button').forEach(button => {
   button.addEventListener('click', () => {
     document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
@@ -1354,32 +1273,30 @@ document.querySelectorAll('.tab-button').forEach(button => {
   });
 });
 
+// Assignment Management
 let assignments = [];
 
 async function loadAssignments() {
   const assignmentList = document.getElementById('assignmentList');
-  const loader = assignmentList.querySelector('.loader');
+  assignmentList.innerHTML = '<div class="loader"></div>';
   
   try {
     const response = await fetch('https://bitancutiepie.github.io/BSIT-2106-CLASS-LINKS/assignments.json');
     if (!response.ok) {
-      if (response.status === 404) { assignments = []; renderAssignments(); return; }
-      throw new Error('Failed to load assignments');
+      throw new Error('Failed to load');
     }
     assignments = await response.json();
-    renderAssignments();
-    checkAndAddAssignmentIcons();
   } catch (error) {
-    console.error('Error loading assignments:', error);
-    if(loader) loader.style.display = 'none';
-    assignmentList.innerHTML = `<div class="no-assignments">Error loading assignments.</div>`;
+    console.log('No assignments file found, starting with empty list');
+    assignments = [];
   }
+  
+  renderAssignments();
+  checkAndAddAssignmentIcons();
 }
 
 function renderAssignments() {
   const assignmentList = document.getElementById('assignmentList');
-  const loader = assignmentList.querySelector('.loader');
-  if(loader) loader.style.display = 'none';
   
   if (assignments.length === 0) {
     assignmentList.innerHTML = `<div class="no-assignments">No assignments currently.</div>`;
@@ -1410,7 +1327,10 @@ function renderAssignments() {
   }).join('');
 }
 
-function toggleAdminForm() { document.getElementById('adminForm').classList.toggle('active'); }
+function toggleAdminForm() { 
+  document.getElementById('adminForm').classList.toggle('active'); 
+}
+
 function addAssignment(event) {
   event.preventDefault();
   const newAssignment = {
@@ -1423,9 +1343,10 @@ function addAssignment(event) {
   assignments.push(newAssignment);
   renderAssignments();
   checkAndAddAssignmentIcons();
-  alert('Assignment added! To make this permanent, update the assignments.json file in your GitHub repository with the exported data.');
+  alert('Assignment added! Export the assignments to save permanently.');
   document.getElementById('adminForm').reset();
 }
+
 function exportAssignments() {
   const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(assignments, null, 2));
   const downloadAnchorNode = document.createElement('a');
@@ -1435,43 +1356,7 @@ function exportAssignments() {
   downloadAnchorNode.click();
   downloadAnchorNode.remove();
 }
-function isAdmin() {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get('admin') === 'true';
-}
 
-function updateClockAndShortcut() {
-    const clockElement = document.getElementById('live-clock');
-    const shortcutElement = document.getElementById('current-class-shortcut');
-    const now = new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Manila"}));
-    const dayOfWeek = now.getDay();
-    const currentTime = ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2);
-    const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
-    const dateString = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    clockElement.innerHTML = `${dateString} | ${timeString}`;
-    const currentClass = scheduleData.find(cls => 
-        cls.day === dayOfWeek && 
-        currentTime >= cls.startTime && 
-        currentTime < cls.endTime
-    );
-    if (currentClass) {
-        shortcutElement.innerHTML = `
-            <div class="shortcut-title">ONGOING CLASS</div>
-            <div class="class-item" style="margin-bottom: 0;">
-                <div class="class-header">
-                    <div class="subject-code">${currentClass.code}</div>
-                    <a class="meet-btn" href="${currentClass.meetLink}" target="_blank"><i class="fas fa-video"></i>Join Now</a>
-                </div>
-                <div class="subject-name">${currentClass.name}</div>
-            </div>
-        `;
-        shortcutElement.style.display = 'block';
-    } else {
-        shortcutElement.style.display = 'none';
-    }
-}
-
-// NEW FUNCTIONS FOR ASSIGNMENT DISPLAY
 function checkAndAddAssignmentIcons() {
     const classItems = document.querySelectorAll('.class-item');
     classItems.forEach(item => {
@@ -1484,7 +1369,7 @@ function checkAndAddAssignmentIcons() {
                 assignmentIcon.classList.add('fas', 'fa-clipboard-list', 'assignment-icon');
                 item.appendChild(assignmentIcon);
                 assignmentIcon.addEventListener('click', (e) => {
-                    e.stopPropagation(); // Prevents the class item click event from firing
+                    e.stopPropagation();
                     showAssignmentsForSubject(subjectCode);
                 });
             } else if (!hasAssignments && assignmentIcon) {
@@ -1534,54 +1419,235 @@ function closeModal() {
     modal.style.display = 'none';
 }
 
-// Close the assignment modal when the user clicks anywhere outside of the modal content
+// Calendar Management
+let calendarEvents = [];
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+
+async function loadCalendarEvents() {
+  try {
+    const response = await fetch('https://bitancutiepie.github.io/BSIT-2106-CLASS-LINKS/events.json');
+    if (!response.ok) {
+      throw new Error('Failed to load');
+    }
+    calendarEvents = await response.json();
+  } catch (error) {
+    console.log('No events file found, starting with empty list');
+    calendarEvents = [];
+  }
+  renderCalendar();
+}
+
+function renderCalendar() {
+  const calendarGrid = document.getElementById('calendarGrid');
+  const monthYearDisplay = document.getElementById('currentMonthYear');
+  
+  const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'];
+  
+  monthYearDisplay.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+  
+  const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+  const daysInPrevMonth = new Date(currentYear, currentMonth, 0).getDate();
+  
+  const today = new Date();
+  const isCurrentMonth = today.getMonth() === currentMonth && today.getFullYear() === currentYear;
+  const todayDate = today.getDate();
+  
+  let html = '';
+  
+  // Previous month days
+  for (let i = firstDay - 1; i >= 0; i--) {
+    const day = daysInPrevMonth - i;
+    html += `<div class="calendar-day-box other-month"><span class="calendar-date">${day}</span></div>`;
+  }
+  
+  // Current month days
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    const dayEvents = calendarEvents.filter(e => e.date === dateStr);
+    
+    const isTodayClass = isCurrentMonth && day === todayDate ? 'today' : '';
+    
+    html += `<div class="calendar-day-box current-month ${isTodayClass}">
+      <span class="calendar-date">${day}</span>`;
+    
+    dayEvents.forEach(event => {
+      const subjectLabel = event.subject ? `<strong>${event.subject}:</strong> ` : '';
+      html += `<div class="calendar-event-item">${subjectLabel}${event.description}</div>`;
+    });
+    
+    html += `</div>`;
+  }
+  
+  // Next month days
+  const totalCells = html.match(/calendar-day-box/g).length;
+  const remainingCells = 42 - totalCells; // 6 rows x 7 days
+  for (let day = 1; day <= remainingCells; day++) {
+    html += `<div class="calendar-day-box other-month"><span class="calendar-date">${day}</span></div>`;
+  }
+  
+  calendarGrid.innerHTML = html;
+}
+
+function changeMonth(direction) {
+  currentMonth += direction;
+  if (currentMonth > 11) {
+    currentMonth = 0;
+    currentYear++;
+  } else if (currentMonth < 0) {
+    currentMonth = 11;
+    currentYear--;
+  }
+  renderCalendar();
+}
+
+function toggleCalendarForm() {
+  document.getElementById('calendarAdminForm').classList.toggle('active');
+}
+
+function addEvent(event) {
+  event.preventDefault();
+  const newEvent = {
+    date: document.getElementById('eventDate').value,
+    subject: document.getElementById('eventSubject').value,
+    description: document.getElementById('eventDescription').value,
+    id: Date.now()
+  };
+  calendarEvents.push(newEvent);
+  renderCalendar();
+  alert('Event added! Export the events to save permanently.');
+  document.getElementById('calendarAdminForm').reset();
+}
+
+function exportEvents() {
+  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(calendarEvents, null, 2));
+  const downloadAnchorNode = document.createElement('a');
+  downloadAnchorNode.setAttribute("href", dataStr);
+  downloadAnchorNode.setAttribute("download", "events.json");
+  document.body.appendChild(downloadAnchorNode);
+  downloadAnchorNode.click();
+  downloadAnchorNode.remove();
+}
+
+// Clock and current class
+function updateClockAndShortcut() {
+    const clockElement = document.getElementById('live-clock');
+    const shortcutElement = document.getElementById('current-class-shortcut');
+    const now = new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Manila"}));
+    const dayOfWeek = now.getDay();
+    const currentTime = ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2);
+    const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+    const dateString = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    clockElement.innerHTML = `${dateString} | ${timeString}`;
+    const currentClass = scheduleData.find(cls => 
+        cls.day === dayOfWeek && 
+        currentTime >= cls.startTime && 
+        currentTime < cls.endTime
+    );
+    if (currentClass) {
+        shortcutElement.innerHTML = `
+            <div class="shortcut-title">ONGOING CLASS</div>
+            <div class="class-item" style="margin-bottom: 0;">
+                <div class="class-header">
+                    <div class="subject-code">${currentClass.code}</div>
+                    <a class="meet-btn" href="${currentClass.meetLink}" target="_blank"><i class="fas fa-video"></i>Join Now</a>
+                </div>
+                <div class="subject-name">${currentClass.name}</div>
+            </div>
+        `;
+        shortcutElement.style.display = 'block';
+    } else {
+        shortcutElement.style.display = 'none';
+    }
+}
+
+function isAdmin() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get('admin') === 'true';
+}
+
+// Modal close on outside click
 window.onclick = function(event) {
     const assignmentModal = document.getElementById('assignmentModal');
-    const codeModal = document.getElementById('codeModal');
     if (event.target == assignmentModal) {
         assignmentModal.style.display = "none";
     }
-    if (event.target == codeModal) {
-        closeCodeModal(); // Close the code modal if clicked outside
-    }
 }
 
-// New functions for the custom code modal
-function showCodeModal() {
-    const codeModal = document.getElementById('codeModal');
-    const quizCodeDisplay = document.getElementById('quizCodeDisplay');
-    const quizCode = "676767"; // The code to display
-
-    quizCodeDisplay.textContent = quizCode; // Set the code in the display
-    codeModal.style.display = 'block'; // Show the modal
-}
-
-function closeCodeModal() {
-    const codeModal = document.getElementById('codeModal');
-    codeModal.style.display = 'none'; // Hide the modal
-}
-
-function confirmRedirectToQuizzes() {
-    closeCodeModal(); // Close the custom modal
-    window.open("https://onlinequestions.org/", "_blank"); // Redirect to the quiz link
-}
-
-
+// Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    // **FIXED: Ensure the form listener is attached even if the form isn't visible**
     const adminForm = document.getElementById('adminForm');
     if(adminForm) {
       adminForm.addEventListener('submit', addAssignment);
     }
+    
+    const calendarAdminForm = document.getElementById('calendarAdminForm');
+    if(calendarAdminForm) {
+      calendarAdminForm.addEventListener('submit', addEvent);
+    }
 
     if (isAdmin()) {
       document.getElementById('adminSection').style.display = 'block';
+      document.getElementById('calendarAdminSection').style.display = 'block';
     }
+    
+    // Calendar navigation
+    document.getElementById('prevMonth').addEventListener('click', () => changeMonth(-1));
+    document.getElementById('nextMonth').addEventListener('click', () => changeMonth(1));
+    
     loadAssignments();
+    loadCalendarEvents();
     updateClockAndShortcut();
     setInterval(updateClockAndShortcut, 1000);
+    
+    // Start advertisement
     startAd();
 });
+
+// Advertisement Functions
+function startAd() {
+    const adOverlay = document.getElementById('ad-overlay');
+    const adVideo = document.getElementById('ad-video');
+    const skipButton = document.getElementById('skip-button');
+    const volumeControl = document.getElementById('volume-control');
+    let countdown = 5;
+
+    adVideo.muted = true;
+    adOverlay.style.display = 'flex';
+
+    let playPromise = adVideo.play();
+    if (playPromise !== undefined) {
+        playPromise.catch(error => {
+            console.log("Autoplay was blocked.");
+        });
+    }
+
+    volumeControl.addEventListener('click', () => {
+        adVideo.muted = !adVideo.muted;
+        volumeControl.innerHTML = adVideo.muted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-high"></i>';
+    });
+
+    const countdownInterval = setInterval(() => {
+        countdown--;
+        if (countdown > 0) {
+            skipButton.textContent = `Skip in ${countdown}`;
+        } else {
+            clearInterval(countdownInterval);
+            skipButton.textContent = 'Skip Ad';
+            skipButton.classList.add('enabled');
+            skipButton.addEventListener('click', closeAd);
+        }
+    }, 1000);
+
+    adVideo.addEventListener('ended', closeAd);
+
+    function closeAd() {
+        adOverlay.style.display = 'none';
+        adVideo.pause();
+    }
+}
 </script>
 </body>
 </html>
