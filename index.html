@@ -608,7 +608,107 @@ h2 {
     margin-bottom: 20px;
 }
 
-.calendar-container {
+/* Day Details Modal */
+.day-details-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+    padding-top: 60px;
+}
+
+.day-details-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 0 40px rgba(255,77,77,0.4);
+    animation: fadeIn 0.5s ease;
+}
+
+.day-details-content h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 0 20px #ff4d4d;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.day-details-date {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ff4d4d;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.day-details-events {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.day-details-event {
+    background: rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid #ff4d4d;
+}
+
+.day-details-event-subject {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #ff4d4d;
+    margin-bottom: 8px;
+}
+
+.day-details-event-description {
+    font-size: 0.95rem;
+    color: #ffffff;
+    line-height: 1.5;
+}
+
+.no-events-message {
+    text-align: center;
+    padding: 30px;
+    font-style: italic;
+    opacity: 0.8;
+    color: #ffffff;
+}
+
+.calendar-day-box {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 10px;
+    height: auto;
+    flex-grow: 1;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin: 5px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.calendar-day-box:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.02);
+}
   padding: 30px;
   border-radius: 25px;
   background: rgba(0, 0, 0, 0.2);
@@ -664,24 +764,16 @@ h2 {
     grid-template-columns: repeat(7, 1fr);
 }
 
-.calendar-day-box {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 10px;
-    padding: 10px;
-    height: auto;
-    flex-grow: 1;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    transition: background 0.3s ease;
-    margin: 5px;
-    overflow: hidden;
-    position: relative;
-}
-
-.calendar-day-box:hover {
-    background: rgba(255, 255, 255, 0.15);
+.calendar-container {
+  padding: 30px;
+  border-radius: 25px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 40px rgba(255,77,77,0.4);
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .calendar-date {
@@ -1241,6 +1333,15 @@ h2 {
   </div>
 </div>
 
+<div id="dayDetailsModal" class="day-details-modal">
+  <div class="day-details-content">
+    <span class="close" onclick="closeDayDetailsModal()">&times;</span>
+    <h3>Day Details</h3>
+    <div class="day-details-date" id="dayDetailsDate"></div>
+    <div class="day-details-events" id="dayDetailsEvents"></div>
+  </div>
+</div>
+
 <div class="floating-action" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
   <img src="patrick.jpg" alt="Go Up" style="width: 90%; height: 90%; border-radius: 50%;">
 </div>
@@ -1420,6 +1521,43 @@ function closeModal() {
     modal.style.display = 'none';
 }
 
+// Day Details Modal Functions
+function showDayDetails(dateStr, day, month, year) {
+    const modal = document.getElementById('dayDetailsModal');
+    const dateDisplay = document.getElementById('dayDetailsDate');
+    const eventsContainer = document.getElementById('dayDetailsEvents');
+    
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'];
+    
+    const dayOfWeek = new Date(year, month, day).toLocaleDateString('en-US', { weekday: 'long' });
+    dateDisplay.textContent = `${dayOfWeek}, ${monthNames[month]} ${day}, ${year}`;
+    
+    const dayEvents = calendarEvents.filter(e => e.date === dateStr);
+    
+    if (dayEvents.length === 0) {
+        eventsContainer.innerHTML = '<div class="no-events-message">No events scheduled for this day.</div>';
+    } else {
+        eventsContainer.innerHTML = dayEvents.map(event => {
+            const subjectHTML = event.subject ? 
+                `<div class="day-details-event-subject">${event.subject}</div>` : '';
+            return `
+                <div class="day-details-event">
+                    ${subjectHTML}
+                    <div class="day-details-event-description">${event.description}</div>
+                </div>
+            `;
+        }).join('');
+    }
+    
+    modal.style.display = 'block';
+}
+
+function closeDayDetailsModal() {
+    const modal = document.getElementById('dayDetailsModal');
+    modal.style.display = 'none';
+}
+
 // Calendar Management
 let calendarEvents = [];
 let currentMonth = new Date().getMonth();
@@ -1461,35 +1599,89 @@ function renderCalendar() {
   // Previous month days
   for (let i = firstDay - 1; i >= 0; i--) {
     const day = daysInPrevMonth - i;
-    html += `<div class="calendar-day-box other-month"><span class="calendar-date">${day}</span></div>`;
+    const prevMonth = currentMonth === 0 ? 11 : currentMonth - 1;
+    const prevYear = currentMonth === 0 ? currentYear - 1 : currentYear;
+    const dateStr = `${prevYear}-${String(prevMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    const dayEvents = calendarEvents.filter(e => e.date === dateStr);
+    
+    html += generateDayCard(day, dateStr, dayEvents, 'other-month', false, prevMonth, prevYear);
   }
   
   // Current month days
   for (let day = 1; day <= daysInMonth; day++) {
     const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
     const dayEvents = calendarEvents.filter(e => e.date === dateStr);
-    
     const isTodayClass = isCurrentMonth && day === todayDate ? 'today' : '';
     
-    html += `<div class="calendar-day-box current-month ${isTodayClass}">
-      <span class="calendar-date">${day}</span>`;
-    
-    dayEvents.forEach(event => {
-      const subjectLabel = event.subject ? `<strong>${event.subject}:</strong> ` : '';
-      html += `<div class="calendar-event-item">${subjectLabel}${event.description}</div>`;
-    });
-    
-    html += `</div>`;
+    html += generateDayCard(day, dateStr, dayEvents, `current-month ${isTodayClass}`, true, currentMonth, currentYear);
   }
   
   // Next month days
   const totalCells = html.match(/calendar-day-box/g).length;
-  const remainingCells = 42 - totalCells; // 6 rows x 7 days
+  const remainingCells = 42 - totalCells;
   for (let day = 1; day <= remainingCells; day++) {
-    html += `<div class="calendar-day-box other-month"><span class="calendar-date">${day}</span></div>`;
+    const nextMonth = currentMonth === 11 ? 0 : currentMonth + 1;
+    const nextYear = currentMonth === 11 ? currentYear + 1 : currentYear;
+    const dateStr = `${nextYear}-${String(nextMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    const dayEvents = calendarEvents.filter(e => e.date === dateStr);
+    
+    html += generateDayCard(day, dateStr, dayEvents, 'other-month', false, nextMonth, nextYear);
   }
   
   calendarGrid.innerHTML = html;
+}
+
+function generateDayCard(day, dateStr, events, classes, showEvents, month, year) {
+  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  
+  let frontEvents = '';
+  if (showEvents && events.length > 0) {
+    frontEvents = events.slice(0, 2).map(event => {
+      const subjectLabel = event.subject ? `<strong>${event.subject}:</strong> ` : '';
+      return `<div class="calendar-event-item">${subjectLabel}${event.description}</div>`;
+    }).join('');
+    
+    if (events.length > 2) {
+      frontEvents += `<div class="calendar-event-item" style="text-align: center; font-style: italic;">+${events.length - 2} more...</div>`;
+    }
+  }
+  
+  let backEvents = '';
+  if (events.length > 0) {
+    backEvents = events.map(event => {
+      const subjectHTML = event.subject ? 
+        `<div class="calendar-back-event-subject">${event.subject}</div>` : '';
+      return `
+        <div class="calendar-back-event">
+          ${subjectHTML}
+          <div class="calendar-back-event-description">${event.description}</div>
+        </div>
+      `;
+    }).join('');
+  } else {
+    backEvents = '<div class="calendar-back-no-events">No events</div>';
+  }
+  
+  return `
+    <div class="calendar-day-box ${classes}" onclick="showDayDetails('${dateStr}', ${day}, ${month}, ${year})">
+      <div class="calendar-day-content">
+        <div class="calendar-day-front">
+          <span class="calendar-date">${day}</span>
+          ${frontEvents}
+        </div>
+        <div class="calendar-day-back">
+          <div class="floating-circles">
+            <div class="circle" id="bottom"></div>
+            <div class="circle" id="right"></div>
+          </div>
+          <div class="calendar-day-back-content">
+            <div class="calendar-back-date-display">${monthNames[month]} ${day}</div>
+            ${backEvents}
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 function changeMonth(direction) {
@@ -1572,8 +1764,12 @@ function isAdmin() {
 // Modal close on outside click
 window.onclick = function(event) {
     const assignmentModal = document.getElementById('assignmentModal');
+    const dayDetailsModal = document.getElementById('dayDetailsModal');
     if (event.target == assignmentModal) {
         assignmentModal.style.display = "none";
+    }
+    if (event.target == dayDetailsModal) {
+        dayDetailsModal.style.display = "none";
     }
 }
 
