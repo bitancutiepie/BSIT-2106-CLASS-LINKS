@@ -1,8 +1,74 @@
 [
   {
-    "date": "2025-10-28",
-    "subject": "PHY 101",
-    "description": "SUBMIT 25 TOPICS FOR RESEARCH",
-    "id": 1761462174434
+    "date": "2025-11-22",
+    "subject": "ACP",
+    "description": "Lab Act 3 Progress Report",
+    "id": 1761462175001
+  },
+  {
+    "date": "2025-11-29",
+    "subject": "ACP",
+    "description": "Lab Act 4 Progress Report",
+    "id": 1761462175002
+  },
+  {
+    "date": "2025-12-02",
+    "subject": "Physics",
+    "description": "Physics Quiz",
+    "id": 1761462175003
+  },
+  {
+    "date": "2025-12-03",
+    "subject": "CompNet",
+    "description": "Skills Test",
+    "id": 1761462175004
+  },
+  {
+    "date": "2025-12-03",
+    "subject": "Physics",
+    "description": "Physics Presentation",
+    "id": 1761462175005
+  },
+  {
+    "date": "2025-12-09",
+    "subject": "Multiple",
+    "description": "Start of Finals: Physics, DMBS, DMath (Dec 9–12)",
+    "id": 1761462175006
+  },
+  {
+    "date": "2025-12-15",
+    "subject": "ASEAN",
+    "description": "Final Output via Flash Drive",
+    "id": 1761462175007
+  },
+  {
+    "date": "2025-12-16",
+    "subject": "OOP",
+    "description": "OOP Presentation",
+    "id": 1761462175008
+  },
+  {
+    "date": "2025-12-16",
+    "subject": "ACP",
+    "description": "ACP Presentation",
+    "id": 1761462175009
+  },
+  {
+    "date": "2025-12-18",
+    "subject": "ACP",
+    "description": "ACP Presentation (2nd Day)",
+    "id": 1761462175010
+  },
+  {
+    "date": "2025-12-16",
+    "subject": "ACP",
+    "description": "ACP Retake Midterm",
+    "id": 1761462175011
+  },
+  {
+    "date": "2025-12-18",
+    "subject": "ACP",
+    "description": "ACP Retake Midterm (2nd Day)",
+    "id": 1761462175012
   }
 ]
