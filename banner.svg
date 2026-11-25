@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 220" width="100%" height="220">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#334155" stroke-width="0.6" opacity="0.4"/>
+    </pattern>
+  </defs>
+  <style>
+    .title { font: 800 34px 'Segoe UI', system-ui, -apple-system, sans-serif; fill: #f8fafc; letter-spacing: 1px; }
+    .sub { font: 500 14px 'Segoe UI', system-ui, -apple-system, sans-serif; fill: #94a3b8; letter-spacing: 0.5px; }
+    .badge { font: 700 11px 'Segoe UI', system-ui, sans-serif; fill: #38bdf8; }
+    .pulse { animation: pulse 2.2s ease-in-out infinite; transform-origin: center; }
+    .float1 { animation: float 4s ease-in-out infinite; }
+    .float2 { animation: float 5.2s ease-in-out infinite reverse; }
+    .scan { animation: scan 3.5s linear infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+    @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-6px); } }
+    @keyframes scan { 0% { transform: translateX(-120px); opacity: 0; } 20% { opacity: 0.6; } 80% { opacity: 0.6; } 100% { transform: translateX(920px); opacity: 0; } }
+  </style>
+  <rect width="900" height="220" rx="14" fill="url(#bg)"/>
+  <rect width="900" height="220" rx="14" fill="url(#grid)"/>
+  <rect x="0" y="0" width="120" height="220" fill="url(#accent)" opacity="0.06" class="scan"/>
+  <rect x="2" y="2" width="896" height="216" rx="12" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.45"/>
+
+  <!-- Left decorative nodes -->
+  <g class="float1" opacity="0.85">
+    <rect x="48" y="54" width="44" height="44" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <path d="M62 76 h16 M70 68 v16" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <g class="float2" opacity="0.75">
+    <circle cx="820" cy="70" r="24" fill="#1e293b" stroke="#818cf8" stroke-width="1.5"/>
+    <path d="M812 70 l6 6 l11 -12" fill="none" stroke="#818cf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g class="float1" opacity="0.7">
+    <rect x="765" y="132" width="88" height="28" rx="14" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2"/>
+    <circle cx="781" cy="146" r="4" fill="#22c55e" class="pulse"/>
+    <text x="792" y="150" class="badge">PORTAL LIVE</text>
+  </g>
+
+  <!-- Center Title -->
+  <text x="120" y="96" class="title">BSIT-2106 CLASS LINKS</text>
+  <rect x="120" y="110" width="160" height="3" rx="1.5" fill="url(#accent)"/>
+  <text x="120" y="138" class="sub">Centralized Class Portal  •  Assignments  •  Events  •  Quick Links</text>
+  <text x="120" y="166" class="badge">HTML5  •  VANILLA JS  •  JSON DATA</text>
+</svg>
